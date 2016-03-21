@@ -1,6 +1,6 @@
 function [ videoData ] = loadAndExtractVideo( videoPath )
-%LOADANDEXTRACTVIDEO loads the video specified by the relative filepath
-%'videopath' and extracts the contained frames in a 3D array videoData.
+%Loads the video specified by the relative filepath 'videopath' and 
+%extracts the contained frames in a 3D array videoData.
 
 % Get video data
 numFrames = get(VideoReader(videoPath), 'numberOfFrames');
@@ -9,7 +9,7 @@ v = VideoReader(videoPath);
 % Extract all frames
 frames = cell(1, numFrames);
 for idx = 1:numFrames
-    if(mod(idx,50)==1)
+    if(mod(idx,200)==1)
         disp(['Extracting frame ' num2str(idx) '/' num2str(numFrames)]);
     end    
     frames{idx} = readFrame(v);

@@ -7,6 +7,6 @@ if (~exist('./data/frames','dir'))
 end
 
 % Use as an example video
-videoPath = 'Data/Cylia_beating_movie.avi';
+videoDir = 'Data/';
 
-[ videoData ] = loadAndExtractVideo( videoPath );
+[ videos ] = batchProcessFolder( videoDir );
