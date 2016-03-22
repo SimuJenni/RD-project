@@ -15,10 +15,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>11340</WindowHeight>
+  <WindowHeight>7580</WindowHeight>
   <WindowWidth>25600</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>-120</WindowTopY>
+  <WindowTopX>280</WindowTopX>
+  <WindowTopY>1580</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -31,45 +31,33 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s16">
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-  </Style>
-  <Style ss:ID="s17">
-   <Borders>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-  </Style>
-  <Style ss:ID="s18">
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-  </Style>
-  <Style ss:ID="s19">
+  <Style ss:ID="s62">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
   </Style>
-  <Style ss:ID="s20">
+  <Style ss:ID="s63">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
     <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
   </Style>
-  <Style ss:ID="s21">
+  <Style ss:ID="s64">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s65">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
   </Style>
-  <Style ss:ID="s22">
+  <Style ss:ID="s66">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
     <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -77,21 +65,7 @@
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
   </Style>
-  <Style ss:ID="s23">
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-  </Style>
-  <Style ss:ID="s24">
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-  </Style>
-  <Style ss:ID="s25">
+  <Style ss:ID="s67">
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
     <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
@@ -99,12 +73,38 @@
    </Borders>
    <NumberFormat ss:Format="dd\-mmm"/>
   </Style>
-  <Style ss:ID="s26">
+  <Style ss:ID="s68">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s69">
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s70">
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s71">
    <Borders>
     <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <NumberFormat ss:Format="dd\-mmm"/>
+  </Style>
+  <Style ss:ID="s72">
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
   </Style>
  </Styles>
  <Worksheet ss:Name="work_log.csv">
@@ -115,343 +115,343 @@
    <Column ss:AutoFitWidth="0" ss:Width="395"/>
    <Column ss:AutoFitWidth="0" ss:Width="73"/>
    <Column ss:Index="6" ss:Hidden="1" ss:AutoFitWidth="0" ss:Span="1"/>
-   <Row>
-    <Cell ss:StyleID="s19"><Data ss:Type="String">Who?</Data></Cell>
-    <Cell ss:StyleID="s20"><Data ss:Type="String">Task</Data></Cell>
-    <Cell ss:StyleID="s20"><Data ss:Type="String">Notes</Data></Cell>
-    <Cell ss:StyleID="s18"><Data ss:Type="String">Date</Data></Cell>
-    <Cell ss:StyleID="s18"><Data ss:Type="String">Time spent</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s62"><Data ss:Type="String">Who?</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Task</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Notes</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Date</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Time spent</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Simon</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Simon</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Setup project infrastructure</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Created git and dropbox folders. Created presentation and log template. </Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-14T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">2h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Setup project infrastructure</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Created git and dropbox folders. Created presentation and log template. </Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-14T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">2h</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">Laurent</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Simon</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Started initial plan</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Added project context</Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-14T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">1h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Started initial plan</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Added project context</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-14T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Simon</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Initial plan</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Added goals and objectives to initial plan</Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-17T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">1h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Initial plan</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Added goals and objectives to initial plan</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-17T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Simon</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Setup project infrastructure </Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Created code folder and structur. Added small demo script.</Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-17T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">1h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Setup project infrastructure </Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Created code folder and structur. Added small demo script.</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-17T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Laurent</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Introduction to video processing with Matlab</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Started to learn how to process videos with Matlab</Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-17T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">1h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Introduction to video processing with Matlab</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Started to learn how to process videos with Matlab</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-17T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Laurent</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Initial plan</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Added: project organization, constraints &amp; elem of risks and deliverables parts</Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-19T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">2h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Initial plan</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Added: project organization, constraints &amp; elem of risks and deliverables parts</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-19T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">2h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Simon</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Initial plan</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Added methodology</Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-20T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">1h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Initial plan</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Added methodology</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-20T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Simon</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Initial plan</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Added efforts and schedule</Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-20T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">1h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Initial plan</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Added efforts and schedule</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-20T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Simon</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Sprint planning</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Setup Taiga and planning for Sprint 1</Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-20T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">1h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Sprint planning</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Setup Taiga and planning for Sprint 1</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-20T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Simon</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Initial plan</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Worked on slides</Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-20T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">1h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Initial plan</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Worked on slides</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-20T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Laurent</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Initial plan</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Worked on slides</Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-21T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">1h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Initial plan</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Worked on slides</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Laurent</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Introduction to video processing with Matlab</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Learning to use Matlab for video processing</Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-21T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">1h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Introduction to video processing with Matlab</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Learning to use Matlab for video processing</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s17"><Data ss:Type="String">Laurent</Data></Cell>
-    <Cell ss:StyleID="s24"><Data ss:Type="String">Initial plan</Data></Cell>
-    <Cell ss:StyleID="s24"><Data ss:Type="String">Worked on slides</Data></Cell>
-    <Cell ss:StyleID="s26"><Data ss:Type="DateTime">2016-03-21T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s16"><Data ss:Type="String">1h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Initial plan</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Worked on slides</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="DateTime">2016-03-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">1h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Simon</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Development</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Implement function that extracts video-data </Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-21T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">1h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Implement function that extracts video-data </Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"><Data ss:Type="String">Simon</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Development</Data></Cell>
-    <Cell ss:StyleID="s22"><Data ss:Type="String">Implement loading of all videos contained in a folder and subfolders</Data></Cell>
-    <Cell ss:StyleID="s25"><Data ss:Type="DateTime">2016-03-21T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s23"><Data ss:Type="String">1h</Data></Cell>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Implement loading of all videos contained in a folder and subfolders</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Started implementing the generation of synthetic test data</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-22T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">2h</Data></Cell>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s17"/>
-    <Cell ss:StyleID="s24"/>
-    <Cell ss:StyleID="s24"/>
-    <Cell ss:StyleID="s16"/>
-    <Cell ss:StyleID="s16"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s17"/>
-    <Cell ss:StyleID="s24"/>
-    <Cell ss:StyleID="s24"/>
-    <Cell ss:StyleID="s16"/>
-    <Cell ss:StyleID="s16"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s21"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s22"/>
-    <Cell ss:StyleID="s23"/>
-    <Cell ss:StyleID="s23"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s65"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s66"/>
+    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s68"/>
    </Row>
-   <Row>
-    <Cell ss:StyleID="s17"/>
-    <Cell ss:StyleID="s24"/>
-    <Cell ss:StyleID="s24"/>
-    <Cell ss:StyleID="s16"/>
-    <Cell ss:StyleID="s16"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s69"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s70"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -460,6 +460,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -468,11 +469,12 @@
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
+   <TopRowVisible>2</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
