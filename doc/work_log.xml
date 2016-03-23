@@ -15,10 +15,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7580</WindowHeight>
-  <WindowWidth>25600</WindowWidth>
-  <WindowTopX>280</WindowTopX>
-  <WindowTopY>1580</WindowTopY>
+  <WindowHeight>13780</WindowHeight>
+  <WindowWidth>28920</WindowWidth>
+  <WindowTopX>-120</WindowTopX>
+  <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -105,6 +105,24 @@
     <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
+  </Style>
+  <Style ss:ID="s73">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s74">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="12" ss:Color="#000000"/>
+   <NumberFormat ss:Format="dd/mmm"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="work_log.csv">
@@ -237,11 +255,11 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">2h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">#7 Taiga</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Function that save extracted data for later reuse</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="DateTime">2016-03-22T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"/>
@@ -473,8 +491,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
