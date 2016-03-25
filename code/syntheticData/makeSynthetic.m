@@ -1,11 +1,13 @@
-function synthData = makeSynthetic(oscFun,dim,freqs,amps,phases,density)
+function synthData = makeSynthetic(oscFun, dim, freqs, amps, phases, ...
+    density)
 %MAKESYNTHETIC generates synthetic test-data. 
 % synthData = makeSynthetic( oscFun, dim, freqs, amps, phases, density )
 % Input:
 %   oscFun - oscilation pattern function oscFun(freq, amp, phase, t) 
-%   dim - Output dimensions (width x height x duration)
+%   dim - Output dimensions [width x height x duration(in seconds!)]
 %   freqs, amps, phases - Parameter arrays for oscFun (sampled unformly)
 %   density - Float in [0,1] specifying pixel-density of oscilations 
+% See also SIMPLESINE.
 
 % Extract dimensions
 width = dim(1);
@@ -35,7 +37,7 @@ for i=1:width
         amp = genAmps(idx);
         phase = genPhases(idx);
         % Generate the oscilation
-        synthData(i,j,:) = oscFun(freq, amp, phase, t) + amp/2;
+        synthData(i,j,:) = oscFun(freq, amp, phase, t) + amp;
     end    
 end
 
