@@ -12,7 +12,7 @@ videoDir = 'Data/';
 
 %% Test synthetic examples
 
-shapeFun = @(freq, amp, phase, time) amp*sin(2*pi*freq*time+phase);
+shapeFun = @(freq, amp, phase, t) amp*sin(2*pi*freq*t+phase);
 
 generatedOscilations = generateSyntheticData( shapeFun, [300,300,1], ...
     (30), (0.1:0.1:1), (0.1:0.1:pi), 1 );
