@@ -1,3 +1,5 @@
+clearvars;
+
 addpath(genpath('./'));
 
 % Check if data folders exist and create if not
@@ -13,20 +15,17 @@ batchProcessFolder( videoDir, 'extracted_data/', false );
 %% Test synthetic examples
 oscFun = simpleSine;
 dim = [300,300,2];
-freqs = 2:1:30;
-amps = 0.1:0.1:2;
-phases = 0.1:0.1:pi;
+freqs = 5;
+amps = 1;
+phases = 0;
 density = 1;
 synthData = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
-v = VideoWriter('synthTest.avi','Uncompressed AVI');
-open(v);
-min_v = min(synthData(:));
-max_v = max(synthData(:));
-for i=1:size(synthData,3)
-    writeVideo(v,mat2gray(synthData(:,:,i),[min_v, max_v]));
-end
-close(v);
+writeSynthVideo(synthData, 'synthClean' );
+
+noisyData = addNoise( synthData, 0.5 );
+
+writeSynthVideo(noisyData, 'synthDirty' );
 
 
 %% Small demo on using the FFT
