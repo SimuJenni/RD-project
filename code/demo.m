@@ -7,10 +7,10 @@ if (~exist('./data','dir'))
     mkdir('./data');
 end
 
-% Use as an example video
-videoDir = 'Data/';
+% Directory where videos are stored
+videoDir = 'data/';
 
-[ videos ] = batchProcessFolder( videoDir );
+batchProcessFolder( videoDir, 'extracted_data/', false );
 
 %% Test synthetic examples
 oscFun = simpleSine;

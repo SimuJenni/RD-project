@@ -1,9 +1,0 @@
-function [ sineFun ] = simpleSine
-%SIMPLESINE Generates a function-handle for a simple sine-function for use
-%with MAKESYNTHETIC
-%   Detailed explanation goes here
-
-sineFun = @(freq, amp, phase, t) amp*sin(2*pi*freq*t+phase);
-
-end
-
