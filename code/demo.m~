@@ -1,5 +1,3 @@
-clearvars;
-
 addpath(genpath('./'));
 
 % Check if data folders exist and create if not
@@ -15,24 +13,26 @@ videoDir = 'Data/';
 %% Test synthetic examples
 oscFun = simpleSine;
 dim = [300,300,2];
-freqs = 5;
+freqs = 10;
 amps = 1;
 phases = 0;
 density = 1;
 synthData = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
-writeSynthVideo(synthData, 'synthClean' );
-
-noisyData = addNoise( synthData, 0.5 );
-
-writeSynthVideo(noisyData, 'synthDirty' );
+v = VideoWriter('synthTest.avi','Uncompressed AVI');
+open(v);
+min
+for i=1:size(synthData,3)
+    writeVideo(v,mat2gray(synthData(:,:,i),[min_v, max_v]));
+end
+close(v);
 
 
 %% Small demo on using the FFT
 
-L = size(synthData,3);
+L = 90;
 Fs = 90;
-dataForFFT = permute(synthData,[3,1,2]);
+dataForFFT = permute(generatedOscilations,[3,1,2]);
 Y = fft(dataForFFT);
 P2 = abs(Y/L);
 P1 = P2(1:L/2+1);
