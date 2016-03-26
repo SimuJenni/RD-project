@@ -15,7 +15,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13780</WindowHeight>
+  <WindowHeight>10020</WindowHeight>
   <WindowWidth>28920</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -262,32 +262,32 @@
     <Cell ss:StyleID="s73"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Finished function that generates synthetic data</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-25T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Refactored and finalised extraction and storing of video data</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-25T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Implemented function which adds noise to synthetic data</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-25T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Initial implementation of frequency analysis using FFT (ROI=Pixels only)</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="DateTime">2016-03-26T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">2h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"/>
@@ -487,12 +487,11 @@
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
-   <TopRowVisible>2</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>23</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>22</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
