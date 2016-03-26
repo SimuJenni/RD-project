@@ -15,9 +15,9 @@ batchProcessFolder( videoDir, 'extracted_data/', false );
 %% Test synthetic examples
 oscFun = simpleSine;
 dim = [300,300,2];
-freqs = 5;
-amps = 1;
-phases = 0;
+freqs = 1:2:50;
+amps = 0.1:0.1:1;
+phases = 0:0.1:pi;
 density = 1;
 synthData = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
@@ -30,17 +30,18 @@ writeSynthVideo(noisyData, 'synthDirty' );
 
 %% Small demo on using the FFT
 
-L = size(synthData,3);
-Fs = 90;
-dataForFFT = permute(synthData,[3,1,2]);
-Y = fft(dataForFFT);
-P2 = abs(Y/L);
-P1 = P2(1:L/2+1);
-P1(2:end-1) = 2*P1(2:end-1);
+[ power, f, domFreqs ] = performFFT( noisyData, 90, 1 );
 
-f = Fs*(0:(L/2))/L;
-plot(f,P1)
-title('Single-Sided Amplitude Spectrum of X(t)')
-xlabel('f (Hz)')
-ylabel('|P1(f)|')
+% Example plots
+figure
+plot(f(2:end/2),power(2:end/2,1,1))
+xlabel('Frequency (Hz)')
+ylabel('Power')
+title('{\bf CBF Spectrum}')
+
+figure
+histogram(domFreqs(:),m/4)
+xlabel('Frequency (Hz)')
+ylabel('Count')
+title('{\bf Distribution of dominant frequencies}')
 
