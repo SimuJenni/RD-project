@@ -7,8 +7,8 @@ function batchProcessFolder( folderPath, storeFolder, reload )
 %   reload - Boolean value (already extracted videos skipped if false)
 % See also EXTRACTVIDEODATA, SAVEEXTRACTEDDATA and ALREADYEXTRACTED.
 
-disp(['Processing folder: ' folderPath]);
 disp('========================================================');
+disp(['Processing folder: ' folderPath]);
 
 % Get a list of all .avi files
 FileList = dir([folderPath '*.avi']); 

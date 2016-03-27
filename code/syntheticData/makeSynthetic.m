@@ -37,7 +37,7 @@ for i=1:width
         amp = genAmps(idx);
         phase = genPhases(idx);
         % Generate the oscilation
-        synthData(i,j,:) = oscFun(freq, amp, phase, t) + amp;
+        synthData(i,j,:) = oscFun(freq, amp, phase, t);
     end    
 end
 

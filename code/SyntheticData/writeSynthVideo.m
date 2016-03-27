@@ -12,7 +12,8 @@ open(v);
 min_v = min(synthData(:));
 max_v = max(synthData(:));
 for i=1:size(synthData,3)
-    writeVideo(v,mat2gray(synthData(:,:,i),[min_v, max_v]));
+    frame = mat2gray(synthData(:,:,i),[min_v, max_v]);
+    writeVideo(v,frame);
 end
 close(v);
 

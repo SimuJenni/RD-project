@@ -18,7 +18,12 @@ for idx = 1:numFrames
     if(mod(idx,50)==1)
         fprintf(2,'.');
     end    
-    frames{idx} = readFrame(v);
+    frame = readFrame(v);
+    if size(frame,3)>1
+        frames{idx} = rgb2gray(frame);
+    else
+        frames{idx} = frame;
+    end
 end
 disp('Done!');
 
