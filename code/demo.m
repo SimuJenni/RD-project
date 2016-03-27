@@ -16,7 +16,7 @@ ylabel('Power')
 title('{\bf CBF Spectrum}')
 
 figure
-histogram(domFreqs(:),m/4)
+histogram(domFreqs(:),100)
 xlabel('Frequency (Hz)')
 ylabel('Count')
 title('{\bf Distribution of dominant frequencies}')

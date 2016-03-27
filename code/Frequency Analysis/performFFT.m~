@@ -21,6 +21,7 @@ end
 dataForFFT = permute(data,[3,1,2]);
 
 Y = fft(dataForFFT, n);     % DFT
+Y = Y(1:n
 power = Y.*conj(Y)/n;       % Power of the DFT
 f = (0:n-1)*(fs/n);         % Frequency range
 
