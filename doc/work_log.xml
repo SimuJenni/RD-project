@@ -15,7 +15,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10020</WindowHeight>
+  <WindowHeight>6260</WindowHeight>
   <WindowWidth>28920</WindowWidth>
   <WindowTopX>-120</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -290,11 +290,11 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">2h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s65"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s68"/>
-    <Cell ss:StyleID="s68"/>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Initial plan</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Finalizing initial plan: Apply feedback,  add SotA and sprint plans.</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="DateTime">2016-03-29T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s65"/>
@@ -487,10 +487,11 @@
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
+   <TopRowVisible>10</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>22</ActiveRow>
+     <ActiveRow>23</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
