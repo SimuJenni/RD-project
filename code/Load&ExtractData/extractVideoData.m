@@ -31,5 +31,8 @@ disp('Done!');
 videoData = cell2mat(frames);
 videoData = reshape(cell2mat(frames),size(videoData,1),[],numFrames);
 
+% Subtract the mean image before saving (good for FFT)
+videoData = subtractMean(videoData);
+
 end
 

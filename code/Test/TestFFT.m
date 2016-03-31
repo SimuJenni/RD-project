@@ -9,10 +9,10 @@ load([extractedDir 'synthClean.mat']);
 [ power, f, domFreqs ] = performFFT( data, fs, 1 );
 
 % Test 1st block frequency 10Hz
-assert(sum(find(abs(domFreqs(1:end/2,1:end/2)-10)>0.5))==0)
+assert(sum(find(abs(domFreqs(1:end/2,1:end/2)-10)>1))==0)
 
 % Test 4th block frequency 15Hz or 0Hz
-not15 = abs(domFreqs(end/2+1:end,end/2+1:end)-15)>0.5;
+not15 = abs(domFreqs(end/2+1:end,end/2+1:end)-15)>1;
 not0 = abs(domFreqs(end/2+1:end,end/2+1:end))>1;
 assert(sum(find(not15&not0))==0);
 

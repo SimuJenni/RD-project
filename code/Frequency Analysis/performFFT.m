@@ -24,12 +24,14 @@ Y = fft(dataForFFT, n);     % DFT
 power = Y.*conj(Y)/n;       % Power of the DFT
 f = (0:n-1)*(fs/n);         % Frequency range
 
-% Get index of dominant frequencies > 1Hz per ROI
-validFreq = find(f>1);
-[maxPow, domFreqIdx] = max(power(validFreq(1):end/2,:,:));
+% Get index of dominant frequencies > 0.5Hz per ROI
+validFreq = find(f>0.5);
+f = f(validFreq);
+power = power(validFreq(1):end/2,:,:);
+[~, domFreqIdx] = max(power);
 
 % Get pixel-wise dominant frequencies
-domFreqs = f(domFreqIdx+validFreq(1));
+domFreqs = f(domFreqIdx);
 domFreqs = squeeze(domFreqs);
 
 end
