@@ -1,3 +1,7 @@
 data
 extracted_data
+results
+
 *.avi
+
+*.m~

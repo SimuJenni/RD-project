@@ -9,6 +9,7 @@ fs = 90;    % Sampling frequency
 % Data directories
 videoDir = './data/';
 extractedDir = './extracted_data/';
+resultsDir = './results/';
 
 % Check if data folder exists and create if not
 if (~exist(videoDir,'dir'))
@@ -16,4 +17,7 @@ if (~exist(videoDir,'dir'))
 end
 if (~exist(extractedDir,'dir'))
     mkdir(extractedDir);
+end
+if (~exist(resultsDir,'dir'))
+    mkdir(resultsDir);
 end

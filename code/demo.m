@@ -6,11 +6,12 @@ batchProcessFolder( videoDir, extractedDir, false );
 
 %% Small demo on using the FFT
 
-load([extractedDir 'Cylia_beating_movie.mat']);
+fileName = 'Cylia_beating_movie.mat';
+load([extractedDir fileName]);
 [ power, f, domFreqs ] = performFFT( data, fs, 1 );
 
 % The activity image
-fftPowerImage(power);
+fftPowerImage(power, fileName, resultsDir);
 
 % Example plots
 figure
