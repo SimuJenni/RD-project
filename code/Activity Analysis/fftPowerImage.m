@@ -18,7 +18,8 @@ colorbar
 
 % Save
 filePath = [saveDir fileName '_Activity_FFT.png'];
-print(filePath,'-dpng');
+saveas(gcf,filePath);
+
 close(f)
 
 end

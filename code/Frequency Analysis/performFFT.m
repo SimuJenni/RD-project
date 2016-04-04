@@ -18,16 +18,18 @@ if roiSize~=1
 end
 
 % Reorder dimensions for fft (convention)
-dataForFFT = permute(data,[3,1,2]);
+data = single(permute(data,[3,1,2]));   % Use single because of memory
 
-Y = fft(dataForFFT, n);     % DFT
+Y = fft(data, n);           % DFT
+clear data;
 power = Y.*conj(Y)/n;       % Power of the DFT
+clear Y;
 f = (0:n-1)*(fs/n);         % Frequency range
 
 % Get index of dominant frequencies > 0.5Hz per ROI
 validFreq = find(f>0.5);
 f = f(validFreq);
-power = power(validFreq(1):end/2,:,:);
+power = power(validFreq(:),:,:);
 [~, domFreqIdx] = max(power);
 
 % Get pixel-wise dominant frequencies
