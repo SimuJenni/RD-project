@@ -6,7 +6,7 @@ function [ videoData ] = extractVideoData( videoPath )
 % Output:
 %   videoData - 3D-array (width x height x numFrames) conatining the
 %               extracted data 
-% See also BATCHPROCESSFOLDER
+% See also BATCHEXTRACTFOLDER
 
 % Get video data
 numFrames = get(VideoReader(videoPath), 'numberOfFrames');

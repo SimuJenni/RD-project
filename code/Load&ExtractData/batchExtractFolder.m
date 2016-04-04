@@ -1,5 +1,5 @@
-function batchProcessFolder( folderPath, storeFolder, reload )
-%BATCHPROCESSFOLDER Extracts and saves all data from all the videos in the 
+function batchExtractFolder( folderPath, storeFolder, reload )
+%BATCHEXTRACTFOLDER Extracts and saves all data from all the videos in the 
 %given folder (including subfolders).
 % Input:
 %   folderPath - String indicating the relative folder-path

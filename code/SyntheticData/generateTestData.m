@@ -55,4 +55,4 @@ synthData = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
 writeSynthVideo(synthData, 'synth10Hz' );
 
-batchProcessFolder( 'data/synthetic/', extractedDir, false );
+batchExtractFolder( 'data/synthetic/', extractedDir, false );

@@ -2,7 +2,7 @@ setup;
 
 %% Demo for loading and extraction of video data
 
-batchProcessFolder( videoDir, extractedDir, false );
+batchExtractFolder( videoDir, extractedDir, false );
 
 %% Small demo on using the FFT
 
