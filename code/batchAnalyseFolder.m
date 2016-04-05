@@ -12,7 +12,7 @@ end
 disp('========================================================');
 disp(['Analysing files in folder: ' folderPath]);
 
-% POOL = parpool('local',2);
+POOL = parpool(4);
 tic
 
 % Get a list of all .mat files
@@ -20,7 +20,7 @@ FileList = dir([folderPath '*.mat']);
 
 % Analyse all the files
 numFiles = length(FileList); 
-for idx = 1:numFiles
+parfor idx = 1:numFiles
     fileName = FileList(idx).name;
     disp(['Analysing file ' num2str(idx) '/' num2str(numFiles) ': '...
         fileName]);
@@ -30,15 +30,22 @@ for idx = 1:numFiles
     [ power, f, domFreqs ] = performFFT( file.data, fs, roiSize );
 
     disp('Generating plots...');
+    fig = figure('visible', 'off');
 
     % Make and store activity image
     fftPowerImage(power, fileName, saveDir);
     
     % Frequency plots
     spectrumPlots( power, f, domFreqs,  fileName, saveDir )
+    
+    % Save
+    filePath = [saveDir fileName '_Results.png'];
+    saveas(gcf,filePath);
+    close(fig);
+
 end
 disp(['DONE! Runtime: ' num2str(toc)])
-% delete(POOL);
+delete(POOL);
 
 end
 

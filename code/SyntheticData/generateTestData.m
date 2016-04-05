@@ -2,6 +2,8 @@ setup;
 
 %% Generate synthetic example 1
 
+disp('Generating synthetic data...')
+
 % Generate a 2x2 block test data of 240x320 blocks using simple sine-waves
 oscFun = simpleSine;
 dim = [240,320,3];
@@ -37,15 +39,19 @@ block4 = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 % Combine blocks
 synthData = [block1, block2;
              block3, block4];
+disp('Write data to video...')
 writeSynthVideo(synthData, 'synthClean' );
 
 % Noisy version
+disp('Add noise to data...')
 noisyData = addNoise( synthData, 0.5 );
+disp('Write data to video...')
 writeSynthVideo(noisyData, 'synthDirty' );
 
 %% Generate synthetic example 2
 
 % Only 1 block (Freq:10 Hz, amp:0.5-1, phase:0-pi, density:1)
+disp('Generating synthetic data...')
 dim = [480,640,3];
 freqs = 10;
 amps = 0.5:0.05:1;
@@ -53,6 +59,7 @@ phases = 0:0.05:pi;
 density = 1;
 synthData = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
+disp('Write data to video...')
 writeSynthVideo(synthData, 'synth10Hz' );
 
 batchExtractFolder( 'data/synthetic/', extractedDir, false );

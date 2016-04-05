@@ -15,7 +15,7 @@ FileList = dir([folderPath '*.avi']);
 
 % Extract data from all the videos
 numVideos = length(FileList); 
-for idx = 1:numVideos
+parfor idx = 1:numVideos
     videoPath = [folderPath FileList(idx).name];
     disp(['Processing video ' num2str(idx) '/' num2str(numVideos) ': '...
         videoPath]);

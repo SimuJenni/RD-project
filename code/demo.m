@@ -1,8 +1,11 @@
 setup;
 
 %% Demo for loading and extraction of video data
-
+POOL = parpool(4);
+tic
 batchExtractFolder( videoDir, extractedDir, false );
+disp(['Extraction DONE! Runtime: ' num2str(toc)])
+delete(POOL);
 
 %% Batch analysing folder
 roiSize = 3;

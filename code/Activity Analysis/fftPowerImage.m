@@ -2,7 +2,7 @@ function fftPowerImage( power, fileName, saveDir )
 %FFTPOWERIMAGE Produces an activity image using the mean of the  provided 
 %FFT-power as activity measure.
 
-f = figure('visible', 'off');
+subplot(2,2,1);
 % Compute the mean fft-power
 activity = mean(power,1);
 
@@ -15,12 +15,6 @@ colormap jet
 imagesc(activity)
 title('{\bf Activity based on mean FFT-power}')
 colorbar
-
-% Save
-filePath = [saveDir fileName '_Activity_FFT.png'];
-saveas(gcf,filePath);
-
-close(f)
 
 end
 
