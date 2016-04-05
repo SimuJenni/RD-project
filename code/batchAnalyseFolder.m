@@ -2,6 +2,13 @@ function batchAnalyseFolder( folderPath, fs, roiSize, resultsDir )
 %BATCHANALYSEFOLDER Anlayses all files in the given folder dir using the
 %specified parameters and saves the results to the folder resultsDir.
 
+saveDir = [resultsDir 'ROI' num2str(roiSize) '/'];
+
+% Check if save folder exists and create if not
+if (~exist(saveDir,'dir'))
+    mkdir(saveDir);
+end
+
 disp('========================================================');
 disp(['Analysing files in folder: ' folderPath]);
 
@@ -25,10 +32,10 @@ for idx = 1:numFiles
     disp('Generating plots...');
 
     % Make and store activity image
-    fftPowerImage(power, fileName, resultsDir);
+    fftPowerImage(power, fileName, saveDir);
     
     % Frequency plots
-    spectrumPlots( power, f, domFreqs,  fileName, resultsDir )
+    spectrumPlots( power, f, domFreqs,  fileName, saveDir )
 end
 disp(['DONE! Runtime: ' num2str(toc)])
 % delete(POOL);
