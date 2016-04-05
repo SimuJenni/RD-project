@@ -36,7 +36,7 @@ validSubDirs = subDirs(~ismember(subDirs,{'.','..'}));
 % Process the subfolders
 for idx = 1:length(validSubDirs)
     subFolder = [folderPath validSubDirs{idx} '/'];
-    batchProcessFolder( subFolder, storeFolder, reload );
+    batchExtractFolder( subFolder, storeFolder, reload );
 end
 
 end

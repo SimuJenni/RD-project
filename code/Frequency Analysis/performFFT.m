@@ -26,8 +26,8 @@ power = Y.*conj(Y)/n;       % Power of the DFT
 clear Y;
 f = (0:n-1)*(fs/n);         % Frequency range
 
-% Get index of dominant frequencies > 0.5Hz per ROI
-validFreq = find(f>0.5);
+% Get index of dominant frequencies > 1Hz per ROI
+validFreq = find(f>1);
 f = f(validFreq);
 power = power(validFreq(:),:,:);
 [~, domFreqIdx] = max(power);
