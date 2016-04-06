@@ -12,7 +12,7 @@ end
 disp('========================================================');
 disp(['Analysing files in folder: ' folderPath]);
 
-POOL = parpool(4);
+POOL = parpool(2);
 tic
 
 % Get a list of all .mat files
@@ -28,6 +28,7 @@ parfor idx = 1:numFiles
     % Load the file
     file = load([folderPath fileName]);
     [ power, f, domFreqs ] = performFFT( file.data, fs, roiSize );
+    file.data = [];
 
     disp('Generating plots...');
     fig = figure('visible', 'off');
