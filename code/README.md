@@ -10,4 +10,11 @@ This tool can be used for batch processing of ciliary beating movies.
 - Tissue activity analysis based on FFT-power
 - Analysis at different scales by adjusting the region of interest (ROI) size 
 
-The folder data/ should be used to store all the data.
+## Usage:
+
+The script demo.m demonstrates the usage of the tool. Folders of the vidoe-data to be analysed should be specified in the setup.m script. Folders for the results and intermediate data can also be specified in there.   
+
+## Requirements:
+
+A minumum of 3 Gb per core are recommended.
+
