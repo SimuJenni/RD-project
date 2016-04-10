@@ -1,6 +1,8 @@
 function batchExtractFolder( folderPath, storeFolder, reload )
 %BATCHEXTRACTFOLDER Extracts and saves all data from all the videos in the 
-%given folder (including subfolders).
+%given folder (including subfolders). Note that if reload is set to false 
+%and the video has already been extracted, the video will not be extracted
+%again.
 % Input:
 %   folderPath - String indicating the relative folder-path
 %   storeFolder - Folder where the extracted data should be saved
