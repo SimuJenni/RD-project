@@ -10,6 +10,7 @@ function [ noisyData ] = addNoise( synthData, snr )
 signals = num2cell(synthData,3);
 
 % Add white-noise to each signal
+% awgn adds white gaussian noise to signal, squeeze removes singleton dimensions of x
 noiseFun = @(x) permute(awgn(squeeze(x),snr),[2,3,1]);
 noisySignals = cellfun(noiseFun, signals, 'UniformOutput', false);
 
