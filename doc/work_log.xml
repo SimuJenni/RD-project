@@ -16,10 +16,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7940</WindowHeight>
-  <WindowWidth>25600</WindowWidth>
-  <WindowTopX>1560</WindowTopX>
-  <WindowTopY>260</WindowTopY>
+  <WindowHeight>13780</WindowHeight>
+  <WindowWidth>29080</WindowWidth>
+  <WindowTopX>-60</WindowTopX>
+  <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -377,18 +377,18 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Reviewing and testing</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Reviewed and tested Simon's code</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="DateTime">2016-04-10T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">4h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Reviewing and testing</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Reviewed and tested Simon's code</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="DateTime">2016-04-11T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"/>
@@ -567,8 +567,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>28</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>34</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
