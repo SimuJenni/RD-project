@@ -12,7 +12,6 @@ end
 disp('========================================================');
 disp(['Analysing files in folder: ' folderPath]);
 
-POOL = parpool(2);
 tic
 
 % Get a list of all .mat files
@@ -46,7 +45,6 @@ parfor idx = 1:numFiles
 
 end
 disp(['DONE! Runtime: ' num2str(toc)])
-delete(POOL);
 
 end
 

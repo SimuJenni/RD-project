@@ -7,7 +7,7 @@ addpath(genpath('./'));
 fs = 90;    % Sampling frequency
 
 % Data directories
-videoDir = './data/';
+videoDir = './data/demo/';
 extractedDir = './extracted_data/';
 resultsDir = './results/';
 

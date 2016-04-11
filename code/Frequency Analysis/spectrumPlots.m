@@ -19,14 +19,14 @@ subplot(2,2,3);
 plot(f(1:round(end/2)),power(1:round(end/2),row,col))
 xlabel('Frequency (Hz)')
 ylabel('Power')
-title('{\bf CBF Spectrum of ROI with Maximum FFT-Power}')
+title('{\bf Max Activity Spectrum}')
 
 %% Distribution of dominant frequencies
 subplot(2,2,4);
 histogram(domFreqs(domFreqs<46),100);
 xlabel('Frequency (Hz)')
 ylabel('Count')
-title('{\bf Distribution of Dominant Frequencies per ROI}')
+title('{\bf Dominant Frequencies per ROI}')
 
 end
 
