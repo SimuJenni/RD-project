@@ -4,11 +4,19 @@ setup
 
 dims = [3, 3, 3];           % filter dimensions
 sigmas = [0.3, 0.3, 0.5];   % parameters for gaussians
-denoise2 = @(x) filter3d(x, dims, sigmas);
+denoise1 = @(x) filter3d(x, dims, sigmas);
 
 dims = [3, 3, 3];           % filter dimensions
 sigmas = [0.3, 0.3, 0.5];   % parameters for gaussians
-denoise3 = @(x) filter3d(x, dims, sigmas, 'median');
+denoise2 = @(x) filter3d(x, dims, sigmas, 'median');
+
+dims = [3, 3, 3];           % filter dimensions
+sigmas = [0.5, 0.5, 0.8];   % parameters for gaussians
+denoise3 = @(x) filter3d(x, dims, sigmas);
+
+dims = [3, 3, 3];           % filter dimensions
+sigmas = [0.5, 0.5, 0.8];   % parameters for gaussians
+denoise4 = @(x) filter3d(x, dims, sigmas, 'median');
 
 
 % Get a list of all .mat files
@@ -27,13 +35,12 @@ for idx = 1:numFiles
     
     data = denoise2(file.data);
     save([extractedDir videoId '_dn2.mat'], 'data');
-    
+
     data = denoise3(file.data);
     save([extractedDir videoId '_dn3.mat'], 'data');
     
     data = denoise4(file.data);
     save([extractedDir videoId '_dn4.mat'], 'data');
-
 end
 
 
