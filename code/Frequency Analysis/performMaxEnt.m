@@ -9,7 +9,7 @@ if roiSize ~= 1
     data = downSampleRoi(data, roiSize);
 end
 
-% Reorder the dimensions to have width x time x height
+% Reorder the dimensions to have time x width x height
 % (This does not seem to be a convention for the maxEnt method, however it 
 %  facilitates the analysis as pyulear will treat the columns of the matrix)
 
@@ -22,16 +22,14 @@ for i = 1:size(data, 3)
     [pxx(:,:,i), f] = pyulear(data(:,:,i), order, n, fs);
 end
 
+% @Laurent: pxx is full of NaN :/ Don't know why that is...
+
 clear data;
-f = f';
-disp(size(f));
+f = squeeze(f);
 
 % Get index of dominant frequencies > 1Hz per ROI
 validFreqs = find(f>1);
-disp(size(validFreqs));
 f = f(validFreqs);
-disp(size(f));
-disp(size(pxx));
 pxx = pxx(validFreqs(:),:,:);
 [~, domFreqsIdx] = max(pxx);
 
