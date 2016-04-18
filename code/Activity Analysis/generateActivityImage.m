@@ -41,7 +41,7 @@ elseif strcmp(method, 'maxent')
     
     % Filter the result for better visualization
     h=fspecial('gaussian',3,1);
-    activity = imfilter(squeeze(entropy),h);
+    entropy = imfilter(squeeze(entropy),h);
     
     colormap jet
     imagesc(entropy)
