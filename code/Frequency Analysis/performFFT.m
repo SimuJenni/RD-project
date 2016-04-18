@@ -12,11 +12,6 @@ function [ power, f, domFreqs ] = performFFT( data, fs, roiSize )
 m = size(data,3);           % Window length
 n = pow2(nextpow2(m));      % Transform length
 
-if roiSize~=1
-    % Downsample data before fft
-    data = downSampleRoi(data, roiSize);
-end
-
 % Reorder dimensions for fft (convention)
 data = single(permute(data,[3,1,2]));   % Use single because of memory
 

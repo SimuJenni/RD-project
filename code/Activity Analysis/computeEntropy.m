@@ -5,13 +5,10 @@ function entropy = computeEntropy(data)
 entropy = zeros(size(data, 1),size(data, 2));
 
 data = single(data);
-fprintf(2, 'Computing Entropy')
+disp('Computing Entropy...')
 
 % Compute entropy pixel-wise
 for row = 1:size(data, 1)
-    if (mod(row, 40) == 1) 
-        fprintf(2, '.') 
-    end
     for col = 1:size(data, 2)
         xh = histcounts(data(row,col,:));
         xh = xh / sum(xh(:));    % Compute probabilities
@@ -19,6 +16,6 @@ for row = 1:size(data, 1)
         entropy(row,col) = -sum(xh(idx) .* log2(xh(idx)));  % Compute entropy
     end
 end
-disp(' Finished computing entropy.') 
+disp('Finished computing entropy!') 
 end
 

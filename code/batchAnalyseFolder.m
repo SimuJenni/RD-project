@@ -26,16 +26,22 @@ parfor idx = 1:numFiles
     
     % Load the file
     file = load([folderPath fileName]);
+    
+    if roiSize~=1
+        % Downsample data before fft
+        file.data = downSampleRoi(file.data, roiSize);
+    end
     [ power, f, domFreqs ] = performFFT( file.data, fs, roiSize );
 
     % Plotting
     disp('Generating plots...');
-    fig = figure('visible', 'off');
-    plotResults( file.data, power, f, domFreqs, fileName, saveDir )
+    fig = figure( 'Position', [100, 100, 1024, 700]);
+    plotResults( file.data, power, f, domFreqs )
     
     % Save
-    filePath = [saveDir fileName '_Results.png'];
-    saveas(gcf,filePath);
+    filePath = [saveDir fileName '_Results.jpg'];
+    set(gcf,'PaperPositionMode','auto')
+    print(filePath,'-dpng','-r0')
     close(fig);
 end
 disp(['DONE! Runtime: ' num2str(toc)])

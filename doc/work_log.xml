@@ -9,14 +9,14 @@
   <LastAuthor>simon jenni</LastAuthor>
   <LastPrinted>2016-03-29T20:13:23Z</LastPrinted>
   <Created>2016-03-14T14:38:05Z</Created>
-  <LastSaved>2016-03-29T20:05:00Z</LastSaved>
+  <LastSaved>2016-04-18T21:47:29Z</LastSaved>
   <Version>14.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13780</WindowHeight>
+  <WindowHeight>10020</WindowHeight>
   <WindowWidth>28860</WindowWidth>
   <WindowTopX>-60</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -437,18 +437,18 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Refactoring</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Refactored plotting </Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="DateTime">2016-04-18T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Implemented activity mask and adjusted plotting</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="DateTime">2016-04-18T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"/>
@@ -586,7 +586,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>39</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
