@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10020</WindowHeight>
+  <WindowHeight>6260</WindowHeight>
   <WindowWidth>29080</WindowWidth>
   <WindowTopX>-60</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -174,7 +174,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="work_log.csv">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="52" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="54" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="62"/>
    <Column ss:AutoFitWidth="0" ss:Width="244"/>
@@ -396,6 +396,20 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Sprint planning</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Meeting with Laurent and Patrice + plannign</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="DateTime">2016-04-11T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Sprint planning</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Meeting with Laurent and Patrice + plannign</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="DateTime">2016-04-11T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Laurent</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Researched about max entropy method and started implementation</Data></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="DateTime">2016-04-14T00:00:00.000</Data></Cell>
@@ -409,18 +423,18 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">3h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Implemented function that performs 3d-smoothing for de-noising</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="DateTime">2016-04-17T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Reviewing and testing</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Code-reviews</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="DateTime">2016-04-17T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"/>
@@ -567,12 +581,12 @@
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
-   <TopRowVisible>6</TopRowVisible>
+   <TopRowVisible>21</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>32</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>36</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
