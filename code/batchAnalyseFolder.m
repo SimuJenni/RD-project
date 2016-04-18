@@ -27,24 +27,19 @@ parfor idx = 1:numFiles
     % Load the file
     file = load([folderPath fileName]);
     [ power, f, domFreqs ] = performFFT( file.data, fs, roiSize );
-    file.data = [];
 
+    % Plotting
     disp('Generating plots...');
     fig = figure('visible', 'off');
-
-    % Make and store activity image
-    fftPowerImage(power, fileName, saveDir);
-    
-    % Frequency plots
-    spectrumPlots( power, f, domFreqs,  fileName, saveDir )
+    plotResults( file.data, power, f, domFreqs, fileName, saveDir )
     
     % Save
     filePath = [saveDir fileName '_Results.png'];
     saveas(gcf,filePath);
     close(fig);
-
 end
 disp(['DONE! Runtime: ' num2str(toc)])
 
 end
+
 
