@@ -29,7 +29,7 @@ if strcmp(type, 'gaussian')
     g_z = reshape(g_z,[1 1 dims(3)]);
     data = convn(data, g_z, 'same');
 else
-    data = medfilt1(data,3,[],3);
+    data = medfilt1(double(data),3,[],3);
 end
 
 % Filtering is seperable! Perform three 1D convolutions -> Faster
