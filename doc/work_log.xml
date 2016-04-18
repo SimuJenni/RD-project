@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>6260</WindowHeight>
-  <WindowWidth>29080</WindowWidth>
+  <WindowHeight>13780</WindowHeight>
+  <WindowWidth>28860</WindowWidth>
   <WindowTopX>-60</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -423,11 +423,11 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">3h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Laurent</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Implemented function that performs 3d-smoothing for de-noising</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="DateTime">2016-04-17T00:00:00.000</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Fixed max entropy method</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="DateTime">2016-04-18T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"><Data ss:Type="String">Simon</Data></Cell>
@@ -585,8 +585,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>36</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>39</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
