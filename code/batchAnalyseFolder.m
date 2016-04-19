@@ -39,7 +39,7 @@ parfor idx = 1:numFiles
     plotResults( file.data, power, f, domFreqs )
     
     % Save
-    filePath = [saveDir fileName '_Results.jpg'];
+    filePath = [saveDir fileName '_Results.png'];
     set(gcf,'PaperPositionMode','auto')
     print(filePath,'-dpng','-r0')
     close(fig);
