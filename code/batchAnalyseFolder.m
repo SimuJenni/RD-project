@@ -1,6 +1,14 @@
-function batchAnalyseFolder( folderPath, fs, roiSize, resultsDir )
-%BATCHANALYSEFOLDER Anlayses all files in the given folder dir using the
+function batchAnalyseFolder( folderPath, fs, roiSize, resultsDir,...
+    preProcess )
+%BATCHANALYSEFOLDER Anlayses all files in the given folder using the
 %specified parameters and saves the results to the folder resultsDir.
+% Input:
+%   folderPath - Relative path to folder of files to be analysed.
+%   fs - Sampling frequency of the data to be analysed
+%   roiSize - Size of the region of interes (ROI)
+%   resultsDir - Path to directory where results should be stored
+%   preProcess - Function handle for pre-processing function of extracted
+%                data
 
 saveDir = [resultsDir 'ROI' num2str(roiSize) '/'];
 
@@ -26,6 +34,9 @@ parfor idx = 1:numFiles
     
     % Load the file
     file = load([folderPath fileName]);
+    
+    % Preprocessing
+    file.data = preProcess(file.data);
     
     if roiSize~=1
         % Downsample data before fft

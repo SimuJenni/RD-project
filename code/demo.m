@@ -7,8 +7,14 @@ batchExtractFolder( videoDir, extractedDir, false );
 disp(['Extraction DONE! Runtime: ' num2str(toc)])
 
 %% Batch analysing folder
+
+% Setting up de-noising parameters
+filterDims = [3, 3, 3];     % diemensions of 3d gaussian kernel
+sigmas = [0.3, 0.3, 0.5];   % parameters for gaussians
+denoise = @(x) filter3d(x, filterDims, sigmas);
+
 roiSize = 3;
-batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir )
+batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir, denoise )
 delete(POOL);
 
 % %% Demo using FFT
