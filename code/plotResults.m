@@ -29,10 +29,7 @@ spectrumPlot( meanPower, f, 'Average CBF Spectrum (Masked)' )
 
 %% Distribution of dominant frequencies
 subplot(3,3,6);
-histogram(domFreqs(domFreqs<46),100);
-xlabel('Frequency (Hz)')
-ylabel('Count')
-title('{\bf Dominant Frequencies per ROI}')
+dominantFrequencyImage( domFreqs, 'Dominant Frequencies per ROI' );
 
 %% Spectrum of ROI with maximal power
 subplot(3,3,7);
