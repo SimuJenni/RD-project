@@ -10,7 +10,7 @@ function batchAnalyseFolder( folderPath, fs, roiSize, resultsDir,...
 %   preProcess - Function handle for pre-processing function of extracted
 %                data
 
-saveDir = [resultsDir 'ROI' num2str(roiSize) '/'];
+saveDir = [resultsDir 'ROI ' num2str(roiSize) '/'];
 
 % Check if save folder exists and create if not
 if (~exist(saveDir,'dir'))

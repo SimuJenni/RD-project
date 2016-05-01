@@ -13,7 +13,7 @@ filterDims = [3, 3, 3];     % diemensions of 3d gaussian kernel
 sigmas = [0.3, 0.3, 0.5];   % parameters for gaussians
 denoise = @(x) filter3d(x, filterDims, sigmas);
 
-roiSize = 3;
+roiSize = [3, 4];
 batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir, denoise )
 delete(POOL);
 
