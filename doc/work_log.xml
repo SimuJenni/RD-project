@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13780</WindowHeight>
+  <WindowHeight>10020</WindowHeight>
   <WindowWidth>28860</WindowWidth>
   <WindowTopX>-60</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -171,6 +171,11 @@
   <Style ss:ID="s82">
    <Borders/>
    <NumberFormat ss:Format="dd/mmm"/>
+  </Style>
+  <Style ss:ID="s83">
+   <Borders/>
+   <Interior/>
+   <NumberFormat ss:Format="dd\-mmm"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="work_log.csv">
@@ -458,11 +463,11 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Implentation of activity analysis with Wavelet transform</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="DateTime">2016-05-01T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">5h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"/>
@@ -586,6 +591,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>39</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
