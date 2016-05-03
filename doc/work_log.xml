@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10020</WindowHeight>
+  <WindowHeight>6260</WindowHeight>
   <WindowWidth>28860</WindowWidth>
   <WindowTopX>-60</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -470,18 +470,18 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">5h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Implement frequency image</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="DateTime">2016-05-01T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Adjust down-sampling ro handle arbitrary ROI-size</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="DateTime">2016-05-01T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"/>
@@ -586,12 +586,12 @@
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
-   <TopRowVisible>21</TopRowVisible>
+   <TopRowVisible>31</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>39</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>42</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
