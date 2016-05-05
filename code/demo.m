@@ -1,7 +1,7 @@
 setup;
 
 %% Demo for loading and extraction of video data
-POOL = parpool(2);
+%POOL = parpool(2);
 tic
 batchExtractFolder( videoDir, extractedDir, false );
 disp(['Extraction DONE! Runtime: ' num2str(toc)])
@@ -15,7 +15,12 @@ denoise = @(x) filter3d(x, filterDims, sigmas);
 
 roiSize = [3, 4];
 batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir, denoise )
-delete(POOL);
+
+% Added following two lines to see what happens with ROI = 1
+% but it takes much more time to compute.
+%roiSize = 1;
+%batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir, denoise )
+%delete(POOL);
 
 % %% Demo using FFT
 % load([extractedDir 'Cylia_beating_movie.mat'])

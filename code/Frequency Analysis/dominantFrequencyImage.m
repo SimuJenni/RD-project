@@ -1,5 +1,5 @@
 function dominantFrequencyImage( domFreqs, titleText )
-%GENERATEACTIVITYIMAGE produces an activity image of the given activity.
+%DOMINANTFREQUENCYIMAGE produces an activity image of the given activity.
 %Input:
 %   domFreqs - Activity image computed with fftPowerActivity or
 %              computeEntropy
