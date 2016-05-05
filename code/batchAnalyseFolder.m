@@ -49,14 +49,24 @@ parfor idx = 1:numFiles
     fig = figure( 'Position', [100, 100, 1024, 700]);
     plotResults( file.data, power, f, domFreqs )
     
-    % Save
+    % Save plots
     filePath = [saveDir fileName '_Results.png'];
     set(gcf,'PaperPositionMode','auto')
     print(filePath,'-dpng','-r0')
     close(fig);
+    
+    % Save data
+    fileName = [saveDir fileName '.mat'];
+    parsave(fileName, power, f, domFreqs);
+    
 end
 disp(['DONE! Runtime: ' num2str(toc)])
 
 end
+
+function parsave(fname, fftPower, freqs, dominantFreqs)
+    save(fname, 'fftPower', 'freqs', 'dominantFreqs')
+end
+
 
 
