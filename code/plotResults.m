@@ -1,4 +1,4 @@
-function plotResults( data, power, f, domFreqs )
+function entropy = plotResults( data, power, f, domFreqs )
 %PLOTRESULTS Manages the creation of plots for all results.
 
 %% Activity images first
@@ -8,12 +8,12 @@ generateActivityImage( fftPowerActivity(power), 'Activity: FFT-Power' );
 
 % Entropy 
 subplot(3,3,2);
-activity = computeEntropy(data);
-generateActivityImage( activity, 'Activity: Entropy' );
+entropy = computeEntropy(data);
+generateActivityImage( entropy, 'Activity: Entropy' );
 
 % The mask
 subplot(3,3,3);
-mask = activityMask( activity, 0.25, 0.75 );
+mask = activityMask( entropy, 0.25, 0.75 );
 generateActivityImage( mask, 'Activity Mask' );
 
 %% The average spectrum over all ROI
@@ -33,13 +33,13 @@ dominantFrequencyImage( domFreqs, 'Dominant Frequencies per ROI' );
 
 %% Spectrum of ROI with maximal power
 subplot(3,3,7);
-[~, idx] = max(activity(:));
+[~, idx] = max(entropy(:));
 [row,col] = ind2sub([size(power,2), size(power,3)], idx);
 spectrumPlot( power(:,row,col), f, 'Max Activity Spectrum' )
 
 %% Spectrum of ROI with maximal power over mask
 subplot(3,3,8);
-[~, idx] = max(activity(:).*mask(:));
+[~, idx] = max(entropy(:).*mask(:));
 [row,col] = ind2sub([size(power,2), size(power,3)], idx);
 spectrumPlot( power(:,row,col), f, 'Max Activity Spectrum (Masked)' )
 

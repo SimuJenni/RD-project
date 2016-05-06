@@ -1,5 +1,5 @@
 %% Setup code before running anything comes here
-clearvars;
+%clearvars;
 addpath(genpath('./'));
 
 %% Global variables

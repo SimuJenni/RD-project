@@ -15,9 +15,13 @@ denoise = @(x) filter3d(x, filterDims, sigmas);
 
 roiSize = [3, 4];
 % roiSize = [6, 8];
+% roiSize = 1;
 batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir, denoise )
 
 delete(POOL);
+
+% Launch the GUI for interpretation of the results
+gui
 
 % %% Demo using FFT
 % load([extractedDir 'Cylia_beating_movie.mat'])

@@ -47,7 +47,7 @@ parfor idx = 1:numFiles
     % Plotting
     disp('Generating plots...');
     fig = figure( 'Position', [100, 100, 1024, 700]);
-    plotResults( file.data, power, f, domFreqs )
+    activity = plotResults( file.data, power, f, domFreqs );
     
     % Save plots
     filePath = [saveDir fileName '_Results.png'];
@@ -56,16 +56,16 @@ parfor idx = 1:numFiles
     close(fig);
     
     % Save data
-    fileName = [saveDir fileName '.mat'];
-    parsave(fileName, power, f, domFreqs);
+    fileName = [saveDir fileName];
+    parsave(fileName, power, f, domFreqs, activity);
     
 end
 disp(['DONE! Runtime: ' num2str(toc)])
 
 end
 
-function parsave(fname, fftPower, freqs, dominantFreqs)
-    save(fname, 'fftPower', 'freqs', 'dominantFreqs')
+function parsave(fname, fftPower, freqs, dominantFreqs, activity)
+    save(fname, 'fftPower', 'freqs', 'dominantFreqs', 'activity')
 end
 
 
