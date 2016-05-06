@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13780</WindowHeight>
+  <WindowHeight>10020</WindowHeight>
   <WindowWidth>28860</WindowWidth>
   <WindowTopX>-60</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -491,11 +491,11 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Saving of results as .mat files</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="DateTime">2016-03-05T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"/>
@@ -586,11 +586,11 @@
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
-   <TopRowVisible>31</TopRowVisible>
+   <TopRowVisible>33</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>42</ActiveRow>
+     <ActiveRow>45</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
