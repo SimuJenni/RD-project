@@ -264,7 +264,6 @@ function activity_plot_ButtonDownFcn(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 axes(handles.activity_plot);
 handles.selectedROI = ceil(get(gca,'currentpoint'));
-disp(handles.selectedROI);
 updateAll(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
@@ -313,7 +312,11 @@ title('{\bf Dominant Frequencies per ROI (Masked)}')
 
 % Selected ROI
 axes(handles.spectrum_selected);
-spectrumPlot( data.fftPower(:,handles.selectedROI(1,1),... 
-    handles.selectedROI(1,2)), data.freqs, 'Selected Spectrum' )
+try
+    spectrumPlot( data.fftPower(:,handles.selectedROI(1,1),... 
+        handles.selectedROI(1,2)), data.freqs, 'Selected Spectrum' )
+catch
+    
+end
 
 guidata(hObject, handles);
