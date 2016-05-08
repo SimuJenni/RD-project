@@ -82,6 +82,9 @@ handles.selectedVideo = ListOfImageVideos{1};
 % Others
 handles.activityFFT = true;
 handles.selectedROI = [1 1; 1 1];
+handles.spectrum_stat_type = 'Average Spectrum (whole image)';
+handles.lq = 0.25;
+handles.hq = 0.75;
 
 % Update handles structure
 guidata(hObject, handles);
@@ -143,7 +146,9 @@ function popup_mask_upper_Callback(hObject, eventdata, handles)
 
 % Hints: contents = cellstr(get(hObject,'String')) returns popup_mask_upper contents as cell array
 %        contents{get(hObject,'Value')} returns selected item from popup_mask_upper
-
+contents = cellstr(get(hObject,'String'));
+handles.hq = str2double(contents{get(hObject,'Value')});
+updateAll(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function popup_mask_upper_CreateFcn(hObject, eventdata, handles)
@@ -166,6 +171,9 @@ function popup_mask_lower_Callback(hObject, eventdata, handles)
 
 % Hints: contents = cellstr(get(hObject,'String')) returns popup_mask_lower contents as cell array
 %        contents{get(hObject,'Value')} returns selected item from popup_mask_lower
+contents = cellstr(get(hObject,'String'));
+handles.lq = str2double(contents{get(hObject,'Value')});
+updateAll(hObject, handles);
 
 
 % --- Executes during object creation, after setting all properties.
@@ -198,7 +206,9 @@ function popup_spectrum_Callback(hObject, eventdata, handles)
 
 % Hints: contents = cellstr(get(hObject,'String')) returns popup_spectrum contents as cell array
 %        contents{get(hObject,'Value')} returns selected item from popup_spectrum
-
+contents = cellstr(get(hObject,'String'));
+handles.spectrum_stat_type = contents{get(hObject,'Value')};
+updateAll(hObject, handles)
 
 % --- Executes during object creation, after setting all properties.
 function popup_spectrum_CreateFcn(hObject, eventdata, handles)
@@ -293,14 +303,30 @@ hold off
 
 % The mask
 axes(handles.mask);
-mask = activityMask( data.activity, 0.25, 0.75 );
+mask = activityMask( data.activity, handles.lq, handles.hq );
 generateActivityImage( mask, 'Activity Mask' );
 
 % Average or max spectrum over mask
 axes(handles.spectrum_stat);
-maskedPower = data.fftPower(:,mask);
-meanPower = mean(maskedPower,2);
-spectrumPlot( meanPower, data.freqs, 'Average CBF Spectrum (Masked)' )
+switch handles.spectrum_stat_type
+    case 'Average Spectrum (whole image)'
+        meanPower = mean(mean(data.fftPower,2),3);
+        spectrumPlot( meanPower, data.freqs, 'Average CBF Spectrum' )
+    case 'Average Spectrum (mask)'
+        maskedPower = data.fftPower(:,mask);
+        meanPower = mean(maskedPower,2);
+        spectrumPlot( meanPower, data.freqs, 'Average CBF Spectrum (Masked)' )
+    case 'Maximum Spectrum (whole image)'
+        [~, idx] = max(data.activity(:));
+        [row,col] = ind2sub([size(data.fftPower,2), size(data.fftPower,3)], idx);
+        spectrumPlot( data.fftPower(:,row,col), data.freqs, 'Max Activity Spectrum' )
+    case 'Maximum Spectrum (mask)'
+        [~, idx] = max(data.activity(:).*mask(:));
+        [row,col] = ind2sub([size(data.fftPower,2), size(data.fftPower,3)], idx);
+        spectrumPlot( data.fftPower(:,row,col), data.freqs, 'Max Activity Spectrum (Masked)' )
+    case 'Frequency Image'
+        dominantFrequencyImage( data.dominantFreqs, 'Dominant Frequencies per ROI' );
+end   
 
 % Distrivution of dominant frequencies
 axes(handles.histogram);
