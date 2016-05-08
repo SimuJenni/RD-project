@@ -66,6 +66,9 @@ for Index = 1:length(DirList);
     ROIList{Index} = DirList(Index).name;
 end
 set(handles.popup_roi,'string',ROIList);
+if isempty(ROIList)
+    error('Empty results folder! Run demo.m first to generate some results.');
+end
 handles.ROISize = ROIList{1};
 
 % Video popup
@@ -77,14 +80,17 @@ for Index = 1:length(FileList)
     ListOfImageVideos{Index} = name;
 end
 set(handles.popup_video,'string',ListOfImageVideos);
+if isempty(ListOfImageVideos)
+    error('Empty results folder!');
+end
 handles.selectedVideo = ListOfImageVideos{1};
 
 % Others
 handles.activityFFT = true;
 handles.selectedROI = [1 1; 1 1];
 handles.spectrum_stat_type = 'Average Spectrum (whole image)';
-handles.lq = 0.25;
-handles.hq = 0.75;
+handles.lq = 0.0;
+handles.hq = 1.0;
 
 % Update handles structure
 guidata(hObject, handles);
