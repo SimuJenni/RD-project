@@ -1,7 +1,7 @@
 setup;
 
 %% Demo for loading and extraction of video data
-POOL = parpool(2);
+%POOL = parpool(2);
 tic
 batchExtractFolder( videoDir, extractedDir, false );
 disp(['Extraction DONE! Runtime: ' num2str(toc)])
@@ -18,7 +18,7 @@ roiSize = [3, 4];
 % roiSize = 1;
 batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir, denoise )
 
-delete(POOL);
+%delete(POOL);
 
 % Launch the GUI for interpretation of the results
 gui
