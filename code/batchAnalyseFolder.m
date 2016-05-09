@@ -42,7 +42,7 @@ parfor idx = 1:numFiles
         % Downsample data before fft
         file.data = downSampleRoi(file.data, roiSize);
     end
-    [ power, f, domFreqs ] = performFFT( file.data, fs, roiSize );
+    [ power, f, domFreqs, domPhase ] = performFFT( file.data, fs );
 
     % Plotting
     disp('Generating plots...');
