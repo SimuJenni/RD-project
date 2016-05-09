@@ -65,25 +65,36 @@ ROIList = cell(1, length(DirList));
 for Index = 1:length(DirList);
     ROIList{Index} = DirList(Index).name;
 end
-set(handles.popup_roi,'string',ROIList);
+
 if isempty(ROIList)
     error('Empty results folder! Run demo.m first to generate some results.');
 end
-handles.ROISize = ROIList{1};
 
 % Video popup
-FileList = dir([handles.resultsFolder ROIList{1} '/*.mat']); 
-ListOfImageVideos = cell(1, length(FileList));
-for Index = 1:length(FileList)
-    baseFileName = FileList(Index).name;    
-    [~, name, ] = fileparts(baseFileName);
-    ListOfImageVideos{Index} = name;
+FileList = struct;
+FileList.names = {};
+FileList.ROIs = {};
+ListDir = {};
+% Get list of video for every ROI, in case some videos have not been anaylized with every ROI
+for Index = 1:length(ROIList)
+    ListDir = dir([handles.resultsFolder ROIList{Index} '/*.mat']);
+    FileList.names = unique([FileList.names {ListDir.name}], 'stable');
+    for idx = 1:length(ListDir)
+        [~, indexOfMember] = ismember(ListDir(idx).name, FileList.names);
+        try
+            FileList.ROIs{indexOfMember} = [FileList.ROIs{indexOfMember} ROIList{Index}];
+        catch
+            FileList.ROIs{indexOfMember} = {ROIList{Index}};
+        end
+    end
 end
-set(handles.popup_video,'string',ListOfImageVideos);
-if isempty(ListOfImageVideos)
+set(handles.popup_video,'string',FileList.names);
+if isempty(FileList)
     error('Empty results folder!');
 end
-handles.selectedVideo = ListOfImageVideos{1};
+handles.selectedVideo = FileList.names{1};
+handles.ROISize = char(FileList.ROIs{1}(1));
+set(handles.popup_roi,'string',FileList.ROIs{1});
 
 % Others
 handles.activityFFT = true;
@@ -91,6 +102,7 @@ handles.selectedROI = [1 1; 1 1];
 handles.spectrum_stat_type = 'Average Spectrum (whole image)';
 handles.lq = 0.0;
 handles.hq = 1.0;
+handles.videos = FileList;
 
 % Update handles structure
 guidata(hObject, handles);
@@ -128,8 +140,20 @@ function popup_video_Callback(hObject, eventdata, handles)
 % Hints: contents = cellstr(get(hObject,'String')) returns popup_video contents as cell array
 %        contents{get(hObject,'Value')} returns selected item from popup_video
 contents = cellstr(get(hObject,'String'));
-handles.selectedVideo = [contents{get(hObject,'Value')} '.mat'];
-updateAll(hObject, handles)
+handles.selectedVideo = [contents{get(hObject,'Value')}];
+
+% Error handling in case the choice of ROI size is bad.
+[~, indexOfMember] = ismember(handles.selectedVideo, handles.videos.names);
+set(handles.popup_roi,'string',handles.videos.ROIs{indexOfMember});
+[member, ~] = ismember(handles.ROISize, handles.videos.ROIs{indexOfMember});
+if ~member
+    set(handles.popup_roi, 'value', 1);
+    handles.ROISize = char(handles.videos.ROIs{indexOfMember}(1));
+    set(handles.popup_roi,'string',handles.videos.ROIs{indexOfMember});
+    errordlg('The selected ROI size is not valid. Please select another one','!! Error !!')   
+end
+
+updateAll(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function popup_video_CreateFcn(hObject, eventdata, handles)
@@ -292,8 +316,9 @@ function activity_plot_CreateFcn(hObject, eventdata, handles)
 
 function updateAll(hObject, handles)
 currentDataPath = [handles.resultsFolder handles.ROISize '/' ...
-    handles.selectedVideo];
+                   handles.selectedVideo];
 data = load(currentDataPath);
+
 
 % Activity
 axes(handles.activity_plot);
