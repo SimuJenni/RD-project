@@ -23,7 +23,7 @@ clear Y;
 f = (0:n-1)*(fs/n);         % Frequency range
 
 % Get index of dominant frequencies > 1Hz per ROI
-validFreq = find(f>1);
+validFreq = find(f>1 & f<fs/2);
 f = f(validFreq);
 power = power(validFreq(:),:,:);
 phase = phase(validFreq(:),:,:);
