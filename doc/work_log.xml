@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13780</WindowHeight>
+  <WindowHeight>10020</WindowHeight>
   <WindowWidth>28820</WindowWidth>
   <WindowTopX>-20</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -550,11 +550,11 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">3h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Presentations</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Worked on Midpoint slides</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="DateTime">2016-05-09T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"/>
@@ -593,8 +593,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>53</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>52</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
