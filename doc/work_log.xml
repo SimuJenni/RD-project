@@ -16,9 +16,9 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10260</WindowHeight>
-  <WindowWidth>22260</WindowWidth>
-  <WindowTopX>1500</WindowTopX>
+  <WindowHeight>13780</WindowHeight>
+  <WindowWidth>28820</WindowWidth>
+  <WindowTopX>-20</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -176,6 +176,9 @@
    <Borders/>
    <Interior/>
    <NumberFormat ss:Format="dd\-mmm"/>
+  </Style>
+  <Style ss:ID="s84">
+   <NumberFormat ss:Format="dd/mmm"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="work_log.csv">
@@ -512,6 +515,13 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Reviewing and testing</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Tested GUI and reviewed code</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="DateTime">2016-05-07T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">Simon</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Added missing features to GUI</Data></Cell>
@@ -526,25 +536,18 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Reviewing and testing</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Tested new features and reviewed code</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="DateTime">2016-05-09T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Error handling for the GUI + testing</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="DateTime">2016-05-09T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">3h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"/>
@@ -590,8 +593,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>45</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>53</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -605,7 +608,7 @@
    </ColBreaks>
   </PageBreaks>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>C1</Range>
+   <Range>R48C1:R1048576C1,R1C1:R46C1</Range>
    <Type>List</Type>
    <Value>work_log.csv!R1C7:R2C7</Value>
   </DataValidation>
