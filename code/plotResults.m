@@ -46,7 +46,7 @@ spectrumPlot( power(:,row,col), f, 'Max Activity Spectrum (Masked)' )
 %% Distribution of dominant frequencies
 subplot(3,3,9);
 maskedFreqs = domFreqs(mask);
-histogram(maskedFreqs(maskedFreqs<46),100);
+histogram(maskedFreqs(maskedFreqs<45),100);
 xlabel('Frequency (Hz)')
 ylabel('Count')
 title('{\bf Dominant Frequencies per ROI (Masked)}')

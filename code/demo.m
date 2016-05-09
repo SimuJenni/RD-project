@@ -23,9 +23,13 @@ batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir, denoise )
 % Launch the GUI for interpretation of the results
 gui
 
+% %% Demo using WT
+% load([extractedDir 'Cylia_beating_movie.mat'])
+% [ power, f, domFreqs ] = WTFreqAnal( data, fs );
+%
 % %% Demo using FFT
 % load([extractedDir 'Cylia_beating_movie.mat'])
-% [ power, f, domFreqs ] = performFFT( data, fs, 1 );
+% [ power, f, domFreqs ] = performFFT( data, fs );
 % 
 % %% Demo activity image
 % activity = fftPowerActivity( power );
