@@ -25,7 +25,7 @@ gui
 
 % %% Demo using WT
 % load([extractedDir 'Cylia_beating_movie.mat'])
-% [ power, f, domFreqs ] = WTFreqAnal( data, fs );
+% [ power, f, domFreqs ] = WTFreqAnalysis( data, fs );
 %
 % %% Demo using FFT
 % load([extractedDir 'Cylia_beating_movie.mat'])
