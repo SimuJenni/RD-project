@@ -6,7 +6,7 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>simon jenni</Author>
-  <LastAuthor>simon jenni</LastAuthor>
+  <LastAuthor>Laurent Hayez</LastAuthor>
   <LastPrinted>2016-03-29T20:13:23Z</LastPrinted>
   <Created>2016-03-14T14:38:05Z</Created>
   <LastSaved>2016-04-18T21:47:29Z</LastSaved>
@@ -557,18 +557,18 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Frequency analysis using WT</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="DateTime">2016-05-09T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">Laurent</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Comparison of results</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Did a small comparison of our results vs Patrice's results</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="DateTime">2016-05-10T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="DateTime">2016-05-10T00:00:00.000</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
-    <Cell ss:StyleID="s77"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -589,12 +589,11 @@
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
-   <TopRowVisible>25</TopRowVisible>
+   <TopRowVisible>32</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>54</ActiveRow>
-     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -608,7 +607,7 @@
    </ColBreaks>
   </PageBreaks>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R48C1:R1048576C1,R1C1:R46C1</Range>
+   <Range>R1C1:R46C1,R48C1:R1048576C1</Range>
    <Type>List</Type>
    <Value>work_log.csv!R1C7:R2C7</Value>
   </DataValidation>
