@@ -42,30 +42,38 @@ parfor idx = 1:numFiles
         % Downsample data before fft
         file.data = downSampleRoi(file.data, roiSize);
     end
+    % analysis with FFT
+    disp('Computing FFT...')
     [ power, f, domFreqs, domPhase ] = performFFT( file.data, fs );
+    % analysis with WT
+    disp('Computing WT... (this operation can take a few minutes)')
+    [ activityWT, powerWT, fWT, dFreqsWT ] = WTAnalysis( file.data, fs );
+    disp('Finished computing WT.')
 
     % Plotting
     disp('Generating plots...');
     fig = figure( 'Position', [100, 100, 1024, 700]);
-    activity = plotResults( file.data, power, f, domFreqs );
+    activity = plotResults( file.data, power, f, domFreqs, activityWT, powerWT, fWT, dFreqsWT );
     
     % Save plots
-    filePath = [saveDir fileName '_Results.png'];
+    filePath = [saveDir fileName '_Results.svg'];
+    %set(gcf, 'PaperType', 'a3')
+    %set(gcf, 'PaperOrientation', 'landscape')
     set(gcf,'PaperPositionMode','auto')
-    print(filePath,'-dpng','-r0')
+    print(filePath,'-dsvg','-r0')
     close(fig);
     
     % Save data
     fileName = [saveDir fileName];
-    parsave(fileName, power, f, domFreqs, activity);
+    parsave(fileName, power, f, domFreqs, activity, activityWT, powerWT, fWT, dFreqsWT);
     
 end
 disp(['DONE! Runtime: ' num2str(toc)])
 
 end
 
-function parsave(fname, fftPower, freqs, dominantFreqs, activity)
-    save(fname, 'fftPower', 'freqs', 'dominantFreqs', 'activity')
+function parsave(fname, fftPower, freqs, dominantFreqs, activity, activityWT, powerWT, fWT, dFreqsWT)
+    save(fname, 'fftPower', 'freqs', 'dominantFreqs', 'activity', 'activityWT', 'powerWT', 'fWT', 'dFreqsWT')
 end
 
 
