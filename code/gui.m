@@ -22,7 +22,7 @@ function varargout = gui(varargin)
 
 % Edit the above text to modify the response to help gui
 
-% Last Modified by GUIDE v2.5 06-May-2016 17:11:28
+% Last Modified by GUIDE v2.5 18-May-2016 18:04:57
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -99,13 +99,15 @@ set(handles.popup_roi,'string',FileList.ROIs{1});
 % Others
 handles.activityFFT = true;
 handles.selectedROI = [1 1; 1 1];
-handles.spectrum_stat_type = 'Average Spectrum (whole image)';
+handles.spectrum_stat_type = 'Mean Spectrum';
+handles.lrPlot_stat_type = 'Histogram of frequencies';
 handles.lq = 0.0;
 handles.hq = 1.0;
 handles.videos = FileList;
 
 % Update handles structure
 guidata(hObject, handles);
+handles = updateData(hObject, handles);
 updateAll(hObject, handles);
 
 
@@ -152,7 +154,7 @@ if ~member
     set(handles.popup_roi,'string',handles.videos.ROIs{indexOfMember});
     errordlg('The selected ROI size is not valid. Please select another one','!! Error !!')   
 end
-
+handles = updateData(hObject, handles);
 updateAll(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
@@ -282,7 +284,8 @@ function popup_roi_Callback(hObject, eventdata, handles)
 contents = cellstr(get(hObject,'String'));
 handles.ROISize = contents{get(hObject,'Value')};
 handles.selectedROI = [1 1; 1 1];
-updateAll(hObject, handles)
+handles = updateData(hObject, handles);
+updateAll(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function popup_roi_CreateFcn(hObject, eventdata, handles)
@@ -314,11 +317,14 @@ function activity_plot_CreateFcn(hObject, eventdata, handles)
 
 % Hint: place code in OpeningFcn to populate activity_plot
 
-function updateAll(hObject, handles)
+function handles = updateData(hObject, handles)
 currentDataPath = [handles.resultsFolder handles.ROISize '/' ...
                    handles.selectedVideo];
-data = load(currentDataPath);
+handles.data = load(currentDataPath);
 
+
+function updateAll(hObject, handles)
+data = handles.data;
 
 % Activity
 axes(handles.activity_plot);
@@ -335,19 +341,20 @@ hold off
 % The mask
 axes(handles.mask);
 mask = activityMask( data.activity, handles.lq, handles.hq );
-generateActivityImage( mask, 'Activity Mask' );
+imagesc(mask);
+title('Activity Mask');
 
 % Average or max spectrum over mask
 axes(handles.spectrum_stat);
 switch handles.spectrum_stat_type
-    case 'Average Spectrum (whole image)'
+    case 'Mean Spectrum'
         meanPower = mean(mean(data.fftPower,2),3);
         spectrumPlot( meanPower, data.freqs, 'Average CBF Spectrum' )
-    case 'Average Spectrum (mask)'
+    case 'Mean Spectrum (mask)'
         maskedPower = data.fftPower(:,mask);
         meanPower = mean(maskedPower,2);
         spectrumPlot( meanPower, data.freqs, 'Average CBF Spectrum (Masked)' )
-    case 'Maximum Spectrum (whole image)'
+    case 'Maximum Spectrum'
         [~, idx] = max(data.activity(:));
         [row,col] = ind2sub([size(data.fftPower,2), size(data.fftPower,3)], idx);
         spectrumPlot( data.fftPower(:,row,col), data.freqs, 'Max Activity Spectrum' )
@@ -357,15 +364,32 @@ switch handles.spectrum_stat_type
         spectrumPlot( data.fftPower(:,row,col), data.freqs, 'Max Activity Spectrum (Masked)' )
     case 'Frequency Image'
         dominantFrequencyImage( data.dominantFreqs, 'Dominant Frequencies per ROI' );
+    case 'Phase Image'
+        dominantPhaseImage( data.dominantPhase, 'Dominant Phase per ROI' );
 end   
 
-% Distrivution of dominant frequencies
+% Lower right plot
 axes(handles.histogram);
-maskedFreqs = data.dominantFreqs(mask);
-histogram(maskedFreqs(maskedFreqs<46),100);
-xlabel('Frequency (Hz)')
-ylabel('Count')
-title('{\bf Dominant Frequencies per ROI (Masked)}')
+switch handles.lrPlot_stat_type
+    case 'Histogram of frequencies'
+        % Distribution of dominant frequencies
+        maskedFreqs = data.dominantFreqs(mask);
+        histogram(maskedFreqs(maskedFreqs<46),100);
+        xlabel('Frequency (Hz)')
+        ylabel('Count')
+        title('{\bf Dominant Frequencies per ROI (Masked)}')    
+    case 'Histogram of phases'
+        % Distribution of dominant phases
+        maskedPhases = data.dominantPhase(mask);
+        histogram(maskedPhases,100);
+        xlabel('Phase (Hz)')
+        ylabel('Count')
+        title('{\bf Dominant Phases per ROI (Masked)}')
+    case 'Frequency Image'
+        dominantFrequencyImage( data.dominantFreqs, 'Dominant Frequencies per ROI' );
+    case 'Phase Image'
+        dominantPhaseImage( data.dominantPhase, 'Dominant Phase per ROI' );
+end   
 
 % Selected ROI
 axes(handles.spectrum_selected);
@@ -377,3 +401,42 @@ catch
 end
 
 guidata(hObject, handles);
+
+
+% --- Executes on selection change in popup_histogram.
+function popup_histogram_Callback(hObject, eventdata, handles)
+% hObject    handle to popup_histogram (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns popup_histogram contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from popup_histogram
+contents = cellstr(get(hObject,'String'));
+handles.lrPlot_stat_type = contents{get(hObject,'Value')};
+updateAll(hObject, handles)
+
+% --- Executes during object creation, after setting all properties.
+function popup_histogram_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to popup_histogram (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in pushbutton7.
+function pushbutton7_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton7 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton8.
+function pushbutton8_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton8 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)

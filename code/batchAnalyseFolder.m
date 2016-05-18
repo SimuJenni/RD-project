@@ -57,15 +57,15 @@ parfor idx = 1:numFiles
     
     % Save data
     fileName = [saveDir fileName];
-    parsave(fileName, power, f, domFreqs, activity);
+    parsave(fileName, power, f, domFreqs, domPhase, activity);
     
 end
 disp(['DONE! Runtime: ' num2str(toc)])
 
 end
 
-function parsave(fname, fftPower, freqs, dominantFreqs, activity)
-    save(fname, 'fftPower', 'freqs', 'dominantFreqs', 'activity')
+function parsave(fname, fftPower, freqs, dominantFreqs, dominantPhase, activity)
+    save(fname, 'fftPower', 'freqs', 'dominantFreqs', 'dominantPhase', 'activity')
 end
 
 
