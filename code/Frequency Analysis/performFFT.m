@@ -18,7 +18,7 @@ data = single(permute(data,[3,1,2]));   % Use single because of memory
 Y = fft(data, n);           % DFT
 clear data;
 power = Y.*conj(Y)/n;       % Power of the DFT
-phase = unwrap(angle(Y));
+phase = angle(fftshift(Y, 1));
 clear Y;
 f = (0:n-1)*(fs/n);         % Frequency range
 

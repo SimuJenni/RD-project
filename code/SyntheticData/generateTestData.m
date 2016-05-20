@@ -10,30 +10,30 @@ dim = [240,320,3];
 
 % 1st block (Freq:10 Hz, amp:1, phase:0, density:1)
 freqs = 10;
-amps = 1;
+amps = 0.5;
 phases = 0;
-density = 1;
+density = 0.6;
 block1 = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
-% 2nd block (Freq:5-15 Hz, amp:0.5, phase:0-pi, density=1)
-freqs = 5:0.1:15;
+% 2nd block (Freq:2-20 Hz, amp:0.5, phase:0-pi, density=1)
+freqs = 20;
 amps = 0.5;
-phases = 0:0.1:pi;
-density = 1;
+phases = 0.5*pi;
+density = 0.6;
 block2 = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
-% 3nd block (Freq:0-30 Hz, amp:0-1, phase:0.5*pi, density=0.5)
-freqs = 0:0.2:30;
-amps = 0:0.1:1;
-phases = 0.5*pi;
-density = 0.5;
+% 3nd block (Freq:20-40 Hz, amp:0-1, phase:1.5*pi, density=0.5)
+freqs = 30;
+amps = 0.5;
+phases = pi;
+density = 0.6;
 block3 = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
-% 4th block (Freq:15 Hz, amp:0.5-1, phase:0-pi, density=0.8)
-freqs = 15;
+% 4th block (Freq:15 Hz, amp:0.5-1, phase:0, density=0.8)
+freqs = 5:25;
 amps = 0.5:0.05:1;
-phases = 0:0.1:pi;
-density = 0.8;
+phases = 0:2*pi;
+density = 1;
 block4 = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
 % Combine blocks
@@ -48,18 +48,18 @@ noisyData = addNoise( synthData, 0.5 );
 disp('Write data to video...')
 writeSynthVideo(noisyData, 'synthDirty' );
 
-%% Generate synthetic example 2
-
-% Only 1 block (Freq:10 Hz, amp:0.5-1, phase:0-pi, density:1)
-disp('Generating synthetic data...')
-dim = [480,640,3];
-freqs = 10;
-amps = 0.5:0.05:1;
-phases = 0:0.05:pi;
-density = 1;
-synthData = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
-
-disp('Write data to video...')
-writeSynthVideo(synthData, 'synth10Hz' );
+% %% Generate synthetic example 2
+% 
+% % Only 1 block (Freq:10 Hz, amp:0.5-1, phase:0-pi, density:1)
+% disp('Generating synthetic data...')
+% dim = [480,640,3];
+% freqs = 10;
+% amps = 0.5:0.05:1;
+% phases = 0:0.05:pi;
+% density = 1;
+% synthData = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
+% 
+% disp('Write data to video...')
+% writeSynthVideo(synthData, 'synth10Hz' );
 
 batchExtractFolder( 'data/synthetic/', extractedDir, false );
