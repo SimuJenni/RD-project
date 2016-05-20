@@ -4,7 +4,7 @@ function varargout = gui(varargin)
 %      singleton*.
 %
 %      H = GUI returns the handle to a new GUI or the handle to
-%      the existing singleton*.
+%      the existing singleton*.s
 %
 %      GUI('CALLBACK',hObject,eventData,handles,...) calls the local
 %      function named CALLBACK in GUI.M with the given input arguments.
@@ -98,7 +98,7 @@ set(handles.popup_roi,'string',FileList.ROIs{1});
 
 % Others
 handles.activityFFT = true;
-handles.selectedROI = [1 1; 1 1];
+handles.selectedROI = [1, 1];
 handles.spectrum_stat_type = 'Mean Spectrum';
 handles.lrPlot_stat_type = 'Histogram of frequencies';
 handles.lq = 0.0;
@@ -306,7 +306,10 @@ function activity_plot_ButtonDownFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 axes(handles.activity_plot);
-handles.selectedROI = ceil(get(gca,'currentpoint'));
+currPoint = ceil(get(gca,'currentpoint'));
+imSize = size(handles.data.activity);
+handles.selectedROI(1) = axes2pix(imSize(1),[1, imSize(1)],  currPoint(1, 1));
+handles.selectedROI(2) = axes2pix(imSize(2),[1, imSize(2)],  currPoint(1, 2));
 updateAll(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
@@ -335,7 +338,7 @@ else
 end
 set(gcf,'WindowButtonDownFcn',@(hObject,eventdata)gui('activity_plot_ButtonDownFcn',hObject,eventdata,guidata(hObject)))
 hold on
-plot(handles.selectedROI(1,1), handles.selectedROI(1,2),'r.','MarkerSize',20)
+plot(handles.selectedROI(1), handles.selectedROI(2),'r.','MarkerSize',20)
 hold off
 
 % The mask
@@ -382,7 +385,7 @@ switch handles.lrPlot_stat_type
         % Distribution of dominant phases
         maskedPhases = data.dominantPhase(mask);
         histogram(maskedPhases,100);
-        xlabel('Phase (Hz)')
+        xlabel('Phase (rad)')
         ylabel('Count')
         title('{\bf Dominant Phases per ROI (Masked)}')
     case 'Frequency Image'
@@ -394,10 +397,11 @@ end
 % Selected ROI
 axes(handles.spectrum_selected);
 try
-    spectrumPlot( data.fftPower(:,handles.selectedROI(1,1),... 
-        handles.selectedROI(1,2)), data.freqs, 'Selected Spectrum' )
+    spectrumPlot( data.fftPower(:,handles.selectedROI(2),... 
+        handles.selectedROI(1)), data.freqs, 'Selected Spectrum' )
 catch
-    
+    handles.selectedROI
+    disp('hmm')
 end
 
 guidata(hObject, handles);
