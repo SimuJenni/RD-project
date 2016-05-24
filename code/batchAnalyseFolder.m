@@ -1,5 +1,5 @@
 function batchAnalyseFolder( folderPath, fs, roiSize, resultsDir,...
-    preProcess )
+    preProcess, transformToUse, waveletType )
 %BATCHANALYSEFOLDER Anlayses all files in the given folder using the
 %specified parameters and saves the results to the folder resultsDir.
 % Input:
@@ -9,12 +9,30 @@ function batchAnalyseFolder( folderPath, fs, roiSize, resultsDir,...
 %   resultsDir - Path to directory where results should be stored
 %   preProcess - Function handle for pre-processing function of extracted
 %                data
+%   transformToUse - Perform analysis with: fft, wt, or both. It WT or both is a parameter,
+%                    waveletType parameter can be specified (morl by default)
+%   waveletType - Specifies which wavelet to use for the wavelet transform (see WTAnalysis for more details)
 
-saveDir = [resultsDir 'ROI ' num2str(roiSize) '/'];
+% Check input
+transformToUse = lower(transformToUse)
 
-% Check if save folder exists and create if not
-if (~exist(saveDir,'dir'))
-    mkdir(saveDir);
+if ~strcmp(transformToUse, 'fft')
+    if nargin < 7
+        waveletType = 'morl'
+    end
+    saveDirWT = [resultsDir '_WT_ROI_' num2str(roiSize) '/'] % save directory for wavelet transform
+    % Check if save folders exists and create if not
+    if (~exist(saveDirWT,'dir'))
+        mkdir(saveDirWT);
+    end
+elseif ~strcmp(transformToUse, 'wt')
+    saveDir = [resultsDir 'ROI ' num2str(roiSize) '/'];
+    % Check if save folders exists and create if not
+    if (~exist(saveDir,'dir'))
+        mkdir(saveDir);
+    end
+elseif ~strmatch(transformToUse, ['fft' 'wt' 'both'])
+    error('Input ERROR: Expected transformToUse to be "fft" or "wt" or "both"')
 end
 
 disp('========================================================');
@@ -42,31 +60,54 @@ parfor idx = 1:numFiles
         % Downsample data before fft
         file.data = downSampleRoi(file.data, roiSize);
     end
-    % analysis with FFT
-    disp('Computing FFT...')
-    [ power, f, domFreqs, domPhase ] = performFFT( file.data, fs );
-    % analysis with WT
-    disp('Computing WT... (this operation can take a few minutes)')
-    [ activityWT, powerWT, fWT, dFreqsWT ] = WTAnalysis( file.data, fs );
-    disp('Finished computing WT.')
 
-    % Plotting
-    disp('Generating plots...');
-    fig = figure( 'Position', [100, 100, 1024, 700]);
-    activity = plotResults( file.data, power, f, domFreqs, activityWT, powerWT, fWT, dFreqsWT );
-    
-    % Save plots
-    filePath = [saveDir fileName '_Results.svg'];
-    %set(gcf, 'PaperType', 'a3')
-    %set(gcf, 'PaperOrientation', 'landscape')
-    set(gcf,'PaperPositionMode','auto')
-    print(filePath,'-dsvg','-r0')
-    close(fig);
-    
-    % Save data
-    fileName = [saveDir fileName];
+    if ~strcmp(transformToUse, 'wt')
+        % analysis with FFT
+        disp('Computing FFT...')
+        [ power, f, domFreqs, domPhase ] = performFFT( file.data, fs );
+        disp('Finished computing FFT.')
 
-    parsave(fileName, power, f, domFreqs, domPhase, activity);
+        % Plotting
+        disp('Generating plots...');
+        fig = figure( 'Position', [100, 100, 1024, 700]);
+        activity = plotResults( file.data, power, f, domFreqs );
+
+        % Save plots
+        filePath = [saveDir fileName '_Results.eps'];
+        set(gcf,'PaperPositionMode','auto')
+        print(filePath,'-depsc','-r0')
+        close(fig);
+
+        % Save data
+        fileName = [saveDir fileName];
+        parsave(fileName, power, f, domFreqs, domPhase, activity);
+    end
+
+    if ~strcmp(transformToUse, 'fft')
+        % analysis with WT
+        disp('Computing WT... (this operation can take a few minutes)')
+        [ activityWT, powerWT, fWT, domFreqsWT ] = WTAnalysis( file.data, fs, waveletType);
+        disp('Finished computing WT.')
+
+        % Plotting
+        disp('Generating plots...');
+        fig = figure( 'Position', [100, 100, 1024, 700]);
+        activity = plotResults( file.data, powerWT, fWT, domFreqsWT );
+
+        % Save plots
+        filePath = [saveDirWT fileName '_Results.eps'];
+        set(gcf,'PaperPositionMode','auto')
+        print(filePath,'-depsc','-r0')
+        close(fig);
+
+        domPhaseWT = [] % Not implemented yet
+
+        % Save data
+        fileName = [saveDirWT fileName];
+        parsave(fileName, powerWT, fWT, domFreqsWT, domPhaseWT, activity);
+    end
+
+
     
 end
 disp(['DONE! Runtime: ' num2str(toc)])
