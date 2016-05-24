@@ -16,9 +16,9 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>10020</WindowHeight>
-  <WindowWidth>28820</WindowWidth>
-  <WindowTopX>-20</WindowTopX>
+  <WindowHeight>8700</WindowHeight>
+  <WindowWidth>22040</WindowWidth>
+  <WindowTopX>540</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -180,9 +180,12 @@
   <Style ss:ID="s84">
    <NumberFormat ss:Format="dd/mmm"/>
   </Style>
+  <Style ss:ID="s85">
+   <NumberFormat ss:Format="dd\-mmm"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="work_log.csv">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="55" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="57" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="62"/>
    <Column ss:AutoFitWidth="0" ss:Width="244"/>
@@ -577,6 +580,20 @@
     <Cell ss:StyleID="s84"><Data ss:Type="DateTime">2016-05-10T00:00:00.000</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">3h</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Improved GUI (faster loading) and added Phase image and histograms</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-05-18T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">3h</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Testing and Bug fixing</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Phase extraction and selection of ROI in GUI fixed and tested</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-05-20T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">3h</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -596,12 +613,12 @@
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
-   <TopRowVisible>32</TopRowVisible>
+   <TopRowVisible>41</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>56</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>57</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

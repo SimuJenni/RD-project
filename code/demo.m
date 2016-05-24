@@ -37,7 +37,7 @@ gui
 %
 % %% Demo using FFT
 % load([extractedDir 'Cylia_beating_movie.mat'])
-% [ power, f, domFreqs ] = performFFT( data, fs );
+% [ power, f, domFreqs, domPhase ] = performFFT( data, fs );
 % 
 % %% Demo activity image
 % activity = fftPowerActivity( power );
