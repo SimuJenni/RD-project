@@ -98,6 +98,7 @@ for idx = 1:numFiles
         activity = plotResults( file.data, powerWT, fWT, domFreqsWT, 'wt', activityWT );
 
         % Save plots
+        fileName = FileList(idx).name;
         filePath = [saveDirWT fileName '_Results.png'];
         set(gcf,'PaperPositionMode','auto')
         print(filePath,'-dpng','-r0')
