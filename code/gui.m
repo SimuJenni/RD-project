@@ -22,7 +22,7 @@ function varargout = gui(varargin)
 
 % Edit the above text to modify the response to help gui
 
-% Last Modified by GUIDE v2.5 18-May-2016 18:04:57
+% Last Modified by GUIDE v2.5 25-May-2016 22:51:10
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -58,7 +58,8 @@ handles.output = hObject;
 %%  Setup stuff
 setup;
 handles.resultsFolder = resultsDir;
-DirList = dir([handles.resultsFolder 'ROI*']); 
+handles.method = 'FFT';     % Show FFT by default
+DirList = dir([handles.resultsFolder handles.method '/' 'ROI*']); 
 
 % ROI popup
 ROIList = cell(1, length(DirList));
@@ -77,7 +78,7 @@ FileList.ROIs = {};
 ListDir = {};
 % Get list of video for every ROI, in case some videos have not been anaylized with every ROI
 for Index = 1:length(ROIList)
-    ListDir = dir([handles.resultsFolder ROIList{Index} '/*.mat']);
+    ListDir = dir([handles.resultsFolder handles.method '/' ROIList{Index} '/*.mat']);
     FileList.names = unique([FileList.names {ListDir.name}], 'stable');
     for idx = 1:length(ListDir)
         [~, indexOfMember] = ismember(ListDir(idx).name, FileList.names);
@@ -321,7 +322,7 @@ function activity_plot_CreateFcn(hObject, eventdata, handles)
 % Hint: place code in OpeningFcn to populate activity_plot
 
 function handles = updateData(hObject, handles)
-currentDataPath = [handles.resultsFolder handles.ROISize '/' ...
+currentDataPath = [handles.resultsFolder handles.method '/' handles.ROISize '/' ...
                    handles.selectedVideo];
 handles.data = load(currentDataPath);
 
@@ -332,7 +333,7 @@ data = handles.data;
 % Activity
 axes(handles.activity_plot);
 if handles.activityFFT
-    generateActivityImage( fftPowerActivity(data.fftPower), 'Activity: FFT-Power' );
+    generateActivityImage( activityFromPower(data.power), 'Activity: FFT-Power' );
 else
     generateActivityImage( data.activity, 'Activity: Entropy' );
 end
@@ -351,20 +352,20 @@ title('Activity Mask');
 axes(handles.spectrum_stat);
 switch handles.spectrum_stat_type
     case 'Mean Spectrum'
-        meanPower = mean(mean(data.fftPower,2),3);
+        meanPower = mean(mean(data.power,2),3);
         spectrumPlot( meanPower, data.freqs, 'Average CBF Spectrum' )
     case 'Mean Spectrum (mask)'
-        maskedPower = data.fftPower(:,mask);
+        maskedPower = data.power(:,mask);
         meanPower = mean(maskedPower,2);
         spectrumPlot( meanPower, data.freqs, 'Average CBF Spectrum (Masked)' )
     case 'Maximum Spectrum'
         [~, idx] = max(data.activity(:));
-        [row,col] = ind2sub([size(data.fftPower,2), size(data.fftPower,3)], idx);
-        spectrumPlot( data.fftPower(:,row,col), data.freqs, 'Max Activity Spectrum' )
+        [row,col] = ind2sub([size(data.power,2), size(data.power,3)], idx);
+        spectrumPlot( data.power(:,row,col), data.freqs, 'Max Activity Spectrum' )
     case 'Maximum Spectrum (mask)'
         [~, idx] = max(data.activity(:).*mask(:));
-        [row,col] = ind2sub([size(data.fftPower,2), size(data.fftPower,3)], idx);
-        spectrumPlot( data.fftPower(:,row,col), data.freqs, 'Max Activity Spectrum (Masked)' )
+        [row,col] = ind2sub([size(data.power,2), size(data.power,3)], idx);
+        spectrumPlot( data.power(:,row,col), data.freqs, 'Max Activity Spectrum (Masked)' )
     case 'Frequency Image'
         dominantFrequencyImage( data.dominantFreqs, 'Dominant Frequencies per ROI' );
     case 'Phase Image'
@@ -397,7 +398,7 @@ end
 % Selected ROI
 axes(handles.spectrum_selected);
 try
-    spectrumPlot( data.fftPower(:,handles.selectedROI(2),... 
+    spectrumPlot( data.power(:,handles.selectedROI(2),... 
         handles.selectedROI(1)), data.freqs, 'Selected Spectrum' )
 catch
     
@@ -431,15 +432,20 @@ if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgr
 end
 
 
-% --- Executes on button press in pushbutton7.
-function pushbutton7_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton7 (see GCBO)
+% --- Executes on button press in WTButton.
+function WTButton_Callback(hObject, eventdata, handles)
+% hObject    handle to WTButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+handles.method = 'WT';
+handles = updateData(hObject, handles);
+updateAll(hObject, handles);
 
-
-% --- Executes on button press in pushbutton8.
-function pushbutton8_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton8 (see GCBO)
+% --- Executes on button press in FFTButton.
+function FFTButton_Callback(hObject, eventdata, handles)
+% hObject    handle to FFTButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+handles.method = 'FFT';
+handles = updateData(hObject, handles);
+updateAll(hObject, handles);
