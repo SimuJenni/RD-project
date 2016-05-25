@@ -43,11 +43,12 @@ disp(['Analysing files in folder: ' folderPath]);
 tic
 
 % Get a list of all .mat files
-FileList = dir([folderPath '*.mat']); 
+FileList = dir([folderPath '*.mat']);
 
 % Analyse all the files
-numFiles = length(FileList); 
-parfor idx = 1:numFiles
+numFiles = length(FileList);
+for idx = 1:numFiles
+    disp(' On Branch Develop ')
     fileName = FileList(idx).name;
     disp(['Analysing file ' num2str(idx) '/' num2str(numFiles) ': '...
         fileName]);
@@ -63,7 +64,10 @@ parfor idx = 1:numFiles
         file.data = downSampleRoi(file.data, roiSize);
     end
 
+    disp(' On Branch Develop ')
+
     if ~strcmp(transformToUse, 'wt')
+        disp('Error error')
         % analysis with FFT
         disp('Computing FFT...')
         [ power, f, domFreqs, domPhase ] = performFFT( file.data, fs );
@@ -84,6 +88,8 @@ parfor idx = 1:numFiles
         fileName = [saveDir fileName];
         parsave(fileName, power, f, domFreqs, domPhase, activity);
     end
+
+    disp(' On Branch Develop ')
 
     if ~strcmp(transformToUse, 'fft')
         % analysis with WT
