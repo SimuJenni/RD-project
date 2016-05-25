@@ -14,25 +14,27 @@ function batchAnalyseFolder( folderPath, fs, roiSize, resultsDir,...
 %   waveletType - Specifies which wavelet to use for the wavelet transform (see WTAnalysis for more details)
 
 % Check input
-transformToUse = lower(transformToUse)
+transformToUse = lower(transformToUse);
 
+if ~strmatch(transformToUse, ['fft' 'wt' 'both'])
+    error('Input ERROR: Expected transformToUse to be "fft" or "wt" or "both"')
+end
 if ~strcmp(transformToUse, 'fft')
     if nargin < 7
-        waveletType = 'morl'
+        waveletType = 'morl';
     end
-    saveDirWT = [resultsDir '_WT_ROI_' num2str(roiSize) '/'] % save directory for wavelet transform
+    saveDirWT = [resultsDir 'WT/ROI ' num2str(roiSize) '/']; % save directory for wavelet transform
     % Check if save folders exists and create if not
     if (~exist(saveDirWT,'dir'))
         mkdir(saveDirWT);
     end
-elseif ~strcmp(transformToUse, 'wt')
-    saveDir = [resultsDir 'ROI ' num2str(roiSize) '/'];
+end
+if ~strcmp(transformToUse, 'wt')
+    saveDir = [resultsDir 'FFT/ROI ' num2str(roiSize) '/'];
     % Check if save folders exists and create if not
     if (~exist(saveDir,'dir'))
         mkdir(saveDir);
     end
-elseif ~strmatch(transformToUse, ['fft' 'wt' 'both'])
-    error('Input ERROR: Expected transformToUse to be "fft" or "wt" or "both"')
 end
 
 disp('========================================================');
