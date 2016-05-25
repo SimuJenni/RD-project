@@ -73,12 +73,12 @@ for idx = 1:numFiles
         % Plotting
         disp('Generating plots...');
         fig = figure( 'Position', [100, 100, 1024, 700]);
-        activity = plotResults( file.data, power, f, domFreqs );
+        activity = plotResults( file.data, power, f, domFreqs, 'fft' );
 
         % Save plots
-        filePath = [saveDir fileName '_Results.eps'];
+        filePath = [saveDir fileName '_Results.png'];
         set(gcf,'PaperPositionMode','auto')
-        print(filePath,'-depsc','-r0')
+        print(filePath,'-dpng','-r0')
         close(fig);
 
         % Save data
@@ -95,7 +95,7 @@ for idx = 1:numFiles
         % Plotting
         disp('Generating plots...');
         fig = figure( 'Position', [100, 100, 1024, 700]);
-        activity = plotResults( file.data, powerWT, fWT, domFreqsWT, transformToUse, activityWT );
+        activity = plotResults( file.data, powerWT, fWT, domFreqsWT, 'wt', activityWT );
 
         % Save plots
         filePath = [saveDirWT fileName '_Results.png'];
