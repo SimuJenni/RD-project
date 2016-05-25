@@ -48,7 +48,6 @@ FileList = dir([folderPath '*.mat']);
 % Analyse all the files
 numFiles = length(FileList);
 for idx = 1:numFiles
-    disp(' On Branch Develop ')
     fileName = FileList(idx).name;
     disp(['Analysing file ' num2str(idx) '/' num2str(numFiles) ': '...
         fileName]);
@@ -63,8 +62,6 @@ for idx = 1:numFiles
         % Downsample data before fft
         file.data = downSampleRoi(file.data, roiSize);
     end
-
-    disp(' On Branch Develop ')
 
     if ~strcmp(transformToUse, 'wt')
         disp('Error error')
@@ -86,10 +83,8 @@ for idx = 1:numFiles
 
         % Save data
         fileName = [saveDir fileName];
-        parsave(fileName, power, f, domFreqs, domPhase, activity);
+        parsave(fileName, power, f, domFreqs, domPhase, activity, []); % No activityWT for FFT
     end
-
-    disp(' On Branch Develop ')
 
     if ~strcmp(transformToUse, 'fft')
         % analysis with WT
@@ -100,19 +95,19 @@ for idx = 1:numFiles
         % Plotting
         disp('Generating plots...');
         fig = figure( 'Position', [100, 100, 1024, 700]);
-        activity = plotResults( file.data, powerWT, fWT, domFreqsWT );
+        activity = plotResults( file.data, powerWT, fWT, domFreqsWT, transformToUse, activityWT );
 
         % Save plots
-        filePath = [saveDirWT fileName '_Results.eps'];
+        filePath = [saveDirWT fileName '_Results.png'];
         set(gcf,'PaperPositionMode','auto')
-        print(filePath,'-depsc','-r0')
+        print(filePath,'-dpng','-r0')
         close(fig);
 
-        domPhaseWT = [] % Not implemented yet
+        domPhaseWT = []; % Not implemented yet
 
         % Save data
         fileName = [saveDirWT fileName];
-        parsave(fileName, powerWT, fWT, domFreqsWT, domPhaseWT, activity);
+        parsave(fileName, powerWT, fWT, domFreqsWT, domPhaseWT, activity, activityWT);
     end
 
 
@@ -122,8 +117,8 @@ disp(['DONE! Runtime: ' num2str(toc)])
 
 end
 
-function parsave(fname, fftPower, freqs, dominantFreqs, dominantPhase, activity)
-    save(fname, 'fftPower', 'freqs', 'dominantFreqs', 'dominantPhase', 'activity')
+function parsave(fname, fftPower, freqs, dominantFreqs, dominantPhase, activity, activityWT)
+    save(fname, 'fftPower', 'freqs', 'dominantFreqs', 'dominantPhase', 'activity', 'activityWT')
 end
 
 
