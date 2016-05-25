@@ -1,6 +1,6 @@
-function activity = fftPowerActivity( power )
-%FFTPOWERActivity Produces an activity image using the mean of the  provided 
-%FFT-power as activity measure.
+function activity = activityFromPower( power )
+%ACTIVITYFROMPOWER Produces an activity image using the mean of the provided 
+%FFT or WT power as activity measure.
 
 % Compute the mean fft-power
 activity = mean(power,1);

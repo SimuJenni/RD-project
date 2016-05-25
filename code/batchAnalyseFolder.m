@@ -1,5 +1,5 @@
 function batchAnalyseFolder( folderPath, fs, roiSize, resultsDir,...
-    preProcess, transformToUse, waveletType )
+    preProcess, method, waveletType )
 %BATCHANALYSEFOLDER Anlayses all files in the given folder using the
 %specified parameters and saves the results to the folder resultsDir.
 % Input:
@@ -9,32 +9,18 @@ function batchAnalyseFolder( folderPath, fs, roiSize, resultsDir,...
 %   resultsDir - Path to directory where results should be stored
 %   preProcess - Function handle for pre-processing function of extracted
 %                data
-%   transformToUse - Perform analysis with: fft, wt, or both. It WT or both is a parameter,
-%                    waveletType parameter can be specified (morl by default)
-%   waveletType - Specifies which wavelet to use for the wavelet transform (see WTAnalysis for more details)
+%   method - String indicating which method to use for analysis ("wt",
+%            "fft" or "both")
+%   waveletType - Specifies which wavelet to use for the wavelet transform 
+
+if nargin < 7
+    waveletType = 'morl';
+end
 
 % Check input
-transformToUse = lower(transformToUse);
-
-if ~strmatch(transformToUse, ['fft' 'wt' 'both'])
+method = lower(method);
+if ~strmatch(method, {'fft' 'wt' 'both'})
     error('Input ERROR: Expected transformToUse to be "fft" or "wt" or "both"')
-end
-if ~strcmp(transformToUse, 'fft')
-    if nargin < 7
-        waveletType = 'morl';
-    end
-    saveDirWT = [resultsDir 'WT/ROI ' num2str(roiSize) '/']; % save directory for wavelet transform
-    % Check if save folders exists and create if not
-    if (~exist(saveDirWT,'dir'))
-        mkdir(saveDirWT);
-    end
-end
-if ~strcmp(transformToUse, 'wt')
-    saveDir = [resultsDir 'FFT/ROI ' num2str(roiSize) '/'];
-    % Check if save folders exists and create if not
-    if (~exist(saveDir,'dir'))
-        mkdir(saveDir);
-    end
 end
 
 disp('========================================================');
@@ -47,7 +33,7 @@ FileList = dir([folderPath '*.mat']);
 
 % Analyse all the files
 numFiles = length(FileList);
-for idx = 1:numFiles
+parfor idx = 1:numFiles
     fileName = FileList(idx).name;
     disp(['Analysing file ' num2str(idx) '/' num2str(numFiles) ': '...
         fileName]);
@@ -63,64 +49,61 @@ for idx = 1:numFiles
         file.data = downSampleRoi(file.data, roiSize);
     end
 
-    if ~strcmp(transformToUse, 'wt')
-        disp('Error error')
+    if strmatch(method, {'fft' 'both'})
         % analysis with FFT
         disp('Computing FFT...')
-        [ power, f, domFreqs, domPhase ] = performFFT( file.data, fs );
+        [ power, freqs, domFreqs, domPhase ] = performFFT( file.data, fs );
         disp('Finished computing FFT.')
 
-        % Plotting
-        disp('Generating plots...');
-        fig = figure( 'Position', [100, 100, 1024, 700]);
-        activity = plotResults( file.data, power, f, domFreqs, 'fft' );
 
-        % Save plots
-        filePath = [saveDir fileName '_Results.png'];
-        set(gcf,'PaperPositionMode','auto')
-        print(filePath,'-dpng','-r0')
-        close(fig);
-
-        % Save data
-        fileName = [saveDir fileName];
-        parsave(fileName, power, f, domFreqs, domPhase, activity, []); % No activityWT for FFT
+        % Save the results
+        saveDir = [resultsDir 'FFT/ROI ' num2str(roiSize) '/'];
+        fPath = [saveDir '/' fileName];
+        saveResults(saveDir, fPath, file.data, power, freqs, domFreqs, domPhase)
     end
 
-    if ~strcmp(transformToUse, 'fft')
+    if strmatch(method, {'wt' 'both'})
         % analysis with WT
         disp('Computing WT... (this operation can take a few minutes)')
-        [ activityWT, powerWT, fWT, domFreqsWT ] = WTAnalysis( file.data, fs, waveletType);
+        [ power, freqs, domFreqs ] = WTAnalysis( file.data, fs, waveletType);
+        domPhase = []; % Not implemented yet
         disp('Finished computing WT.')
-
-        % Plotting
-        disp('Generating plots...');
-        fig = figure( 'Position', [100, 100, 1024, 700]);
-        activity = plotResults( file.data, powerWT, fWT, domFreqsWT, 'wt', activityWT );
-
-        % Save plots
-        fileName = FileList(idx).name;
-        filePath = [saveDirWT fileName '_Results.png'];
-        set(gcf,'PaperPositionMode','auto')
-        print(filePath,'-dpng','-r0')
-        close(fig);
-
-        domPhaseWT = []; % Not implemented yet
-
-        % Save data
-        fileName = [saveDirWT fileName];
-        parsave(fileName, powerWT, fWT, domFreqsWT, domPhaseWT, activity, activityWT);
-    end
-
-
-    
+       
+        % Save the results
+        saveDir = [resultsDir 'WT/ROI ' num2str(roiSize) '/'];
+        fPath = [saveDir '/' fileName];
+        saveResults(saveDir, fPath, file.data, power, freqs, domFreqs, domPhase)
+    end    
 end
 disp(['DONE! Runtime: ' num2str(toc)])
 
+
 end
 
-function parsave(fname, fftPower, freqs, dominantFreqs, dominantPhase, activity, activityWT)
-    save(fname, 'fftPower', 'freqs', 'dominantFreqs', 'dominantPhase', 'activity', 'activityWT')
+function saveResults(saveDir, fileName, data, power, freqs, ...
+    dominantFreqs, dominantPhase)
+
+    % Check if save folders exists and create if not
+    if (~exist(saveDir,'dir'))
+        mkdir(saveDir);
+    end
+    
+    % Plots
+    disp('Generating plots...');
+    fig = figure( 'Position', [100, 100, 1024, 700]);
+    activity = plotResults( data, power, freqs, dominantFreqs );
+
+    % Save plots
+    filePath = [fileName '_Results.png'];
+    set(gcf,'PaperPositionMode','auto')
+    print(filePath,'-dpng','-r0')
+    close(fig);
+
+    % Save data
+    save(fileName, 'power', 'freqs', 'dominantFreqs', 'dominantPhase', 'activity')
 end
+
+
 
 
 

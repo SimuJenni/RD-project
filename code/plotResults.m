@@ -1,20 +1,10 @@
-function entropy = plotResults( data, power, f, domFreqs, transformName, activityWT)
+function entropy = plotResults( data, power, f, domFreqs)
 %PLOTRESULTS Manages the creation of plots for all results.
-
-% Input check
-transformName = upper(transformName);
-if strcmp(transformName, 'WT') && nargin < 6
-    error('Input ERROR: transformName is WT but there is no activityWT argument')
-end
 
 %% Activity images first
 % FFT or WT power
 subplot(3,3,1);
-if strcmp(transformName, 'FFT')
-    generateActivityImage( fftPowerActivity(power), ['Activity: ' transformName '-Power'] );
-else
-    generateActivityImage( activityWT, ['Activity: ' transformName '-Power'] );
-end
+generateActivityImage( activityFromPower(power), ['Activity: Power'] );
 
 % Entropy
 subplot(3,3,2);

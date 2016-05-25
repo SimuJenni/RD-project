@@ -400,8 +400,7 @@ try
     spectrumPlot( data.fftPower(:,handles.selectedROI(2),... 
         handles.selectedROI(1)), data.freqs, 'Selected Spectrum' )
 catch
-    handles.selectedROI
-    disp('hmm')
+    
 end
 
 guidata(hObject, handles);
