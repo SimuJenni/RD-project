@@ -20,7 +20,7 @@ end
 % Check input
 method = lower(method);
 if ~strmatch(method, {'fft' 'wt' 'both'})
-    error('Input ERROR: Expected transformToUse to be "fft" or "wt" or "both"')
+    error('Input ERROR: Expected method to be "fft" or "wt" or "both"')
 end
 
 disp('========================================================');
