@@ -94,7 +94,8 @@ analyzed by observing different features of the tissue, one of which is the cili
 
 \subsection{Goals and Objectives of the Project}
 
-The goal of this project is to implement a tool for the automatic analysis of ciliary beating in tissue movies. Concretely the objectives are the following:
+The goal of this project is to implement a tool for the automatic analysis of ciliary beating in tissue
+movies. Concretely the objectives are the following:
 \begin{itemize}
 \item Allowing batch processing of video-data contained in a folder (including subfolders). 
 \item Pre-processing of the video data in order to remove noise by smoothing with a customizable 3D kernel.
@@ -106,14 +107,20 @@ The goal of this project is to implement a tool for the automatic analysis of ci
 \item Illustrate the phase of the beating frequency in regions of similar beating frequency.
 \end{itemize}
 
-Part of the project will also be an evaluation of the performance of different techniques applied to the problem and other research such as:
+Part of the project will also be an evaluation of the performance of different techniques applied to the
+problem and other research such as:
+
 \begin{itemize}
 \item Evaluating the effect of the ROI size on performance.
 \item Evaluating the probable shape of the beating pattern on a “by cilia beating movie” basis.
 \item Comparing different techniques for the frequency analysis (e.g. FFT, wavelet transform, autocorrelation, …).
 \end{itemize}
 
-Given the scope of this project and the relatively large amount of objectives, it should be noted that some of the objectives are being given a higher priority than others. The ultimate goal of this project is to provide a tool for frequency analysis and task-priorities will therefore be weighted with this goal in mind. This means for example that de-noising, a whole subject on it’s own, will not be studied and evaluated as extensively as techniques for frequency analysis. 
+Given the scope of this project and the relatively large amount of objectives, it should be noted that some of
+the objectives are being given a higher priority than others. The ultimate goal of this project is to provide
+a tool for frequency analysis and task-priorities will therefore be weighted with this goal in mind. This
+means for example that de-noising, a whole subject on it’s own, will not be studied and evaluated as
+extensively as techniques for frequency analysis.
 
  
 %----------------------------------------------------------------------------------------
@@ -122,15 +129,32 @@ Given the scope of this project and the relatively large amount of objectives, i
 
 \section{Methodology}
 
-The implementation of the tool will be carried out in Matlab. The decision to use Matlab has been taken in agreement with the client and is based on the ease of handling image and video processing and the relatively fast development time that Matlab provides.  Matlab requires a license to be used. Philip Morris International has an enterprise license and we have our respective university licenses, so this won’t be a problem. Git will be used as version control tool.
+The implementation of the tool will be carried out in Matlab. The decision to use Matlab has been taken in
+agreement with the client and is based on the ease of handling image and video processing and the relatively
+fast development time that Matlab provides.  Matlab requires a license to be used. Philip Morris International
+has an enterprise license and we have our respective university licenses, so this won’t be a problem. Git will
+be used as version control tool.
 
-Development will be done in an incremental and iterative fashion roughly following the SCRUM framework. The objectives will be distributed across sprints of two weeks each. Sprint planning of the first sprint has already been done and has the goal of providing an implementation of the minimal requirements. To keep track of the progress and help manage the project we will make use of Taiga, an open source project management platform similar to JIRA. Both the client and project stakeholders will have access to Taiga and will be able to follow the progress if they wish to do so. 
+Development will be done in an incremental and iterative fashion roughly following the SCRUM framework. The
+objectives will be distributed across sprints of two weeks each. Sprint planning of the first sprint has
+already been done and has the goal of providing an implementation of the minimal requirements. To keep track
+of the progress and help manage the project we will make use of Taiga, an open source project management
+platform similar to JIRA. Both the client and project stakeholders will have access to Taiga and will be able
+to follow the progress if they wish to do so.
 
-To ensure correctness of the implementation, testing using synthetic test-data will be an essential part or the development process. In order to further improve code-quality, code reviews by the other respective developer will be performed for every major task.
+To ensure correctness of the implementation, testing using synthetic test-data will be an essential part or
+the development process. In order to further improve code-quality, code reviews by the other respective
+developer will be performed for every major task.
 
 \subsection{State of the art}
 
-The arguably most accurate method for analyzing the ciliary beating frequency is the direct measurement from high-speed video recordings. This is of course very time-consuming and therefore several automated methods have been proposed. The most commonly used approaches for the automated analysis of ciliary beating are based on using the Fast Fourier Transform (FFT) to analyze intensity-signals in a region of interest and will be the principal approach and starting point for further exploration used in this project. Other methods such as photomultiplier and modified photodiode techniques rely on different hardware and inputs and are therefore not considered.
+The arguably most accurate method for analyzing the ciliary beating frequency is the direct measurement from
+high-speed video recordings. This is of course very time-consuming and therefore several automated methods
+have been proposed. The most commonly used approaches for the automated analysis of ciliary beating are based
+on using the Fast Fourier Transform (FFT) to analyze intensity-signals in a region of interest and will be the
+principal approach and starting point for further exploration used in this project. Other methods such as
+photomultiplier and modified photodiode techniques rely on different hardware and inputs and are therefore not
+considered.
 
 %----------------------------------------------------------------------------------------
 %	SECTION 3
