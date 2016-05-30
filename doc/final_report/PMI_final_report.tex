@@ -1,0 +1,211 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage[utf8]{inputenc} % Input encoding
+\usepackage[T1]{fontenc} % Font encoding
+\usepackage{siunitx} % Provides the \SI{}{} and \si{} command for typesetting SI units
+\usepackage{graphicx} % Required for the inclusion of images
+\usepackage{natbib} % Required to change bibliography style to APA
+\usepackage{amsmath} % Required for some math elements 
+\usepackage{lmodern} % Font used in the document
+\usepackage{hyperref} % To add link in the document
+\usepackage[headsepline]{scrpage2} % For headers and footers with KOMA classes
+\usepackage{todonotes}
+\usepackage{enumitem} % Enumeration package
+\usepackage[english]{babel} 
+
+\synctex=1 % For syncing skim with Emacs
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+\renewcommand{\labelitemi}{\textbullet} % make items in itemize environment bullets rather that dashes
+\renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than
+                                % number (e.g. section 6)
+
+%\usepackage{times} % Uncomment to use the Times New Roman font
+
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\addtokomafont{disposition}{\normalfont\bfseries} % Make title/sections/subsections font the same as the rest
+                                % of the document
+
+\title{Philip Morris: Data Analysis Improvement of Ciliary Beating of 3D Epithelial Tissue\\\vspace{1cm}Final report\vspace{1cm}} % Title
+
+\author{Simon Jenni \& Laurent Hayez} % Author name
+
+\date{\today} % Date for the report
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	HEADERS AND FOOTERS
+%----------------------------------------------------------------------------------------
+
+\setfootsepline[text]{.4pt}
+
+\pagestyle{scrheadings}
+\automark[section]{section}
+\ihead{{\sc Data Analysis Improvement of Ciliary Beating of 3D Epithelial Tissue}}
+\ohead{}
+\chead{}
+\ifoot[Final report]{{\sc Final report}}
+\ofoot[\pagemark]{\pagemark}
+\cfoot[]{}
+
+\maketitle % Insert the title, author and date
+
+\thispagestyle{empty}
+
+\begin{center}
+\begin{tabular}{l r !{\textendash} l}
+Contact: & Simon Jenni & \href{mailto:simujenni@students.unibe.ch}{simujenni@students.unibe.ch} \\ % Partner names
+& Laurent Hayez: & \href{mailto:laurent.hayez@unine.ch}{laurent.hayez@unine.ch}\\
+Supervisor: & Patrice Leroy: & \href{mailto:Patrice.Leroy@pmi.com)}{Patrice.Leroy@pmi.com} % Instructor/supervisor
+\end{tabular}
+\end{center}
+
+% If you wish to include an abstract, uncomment the lines below
+% \begin{abstract}
+% Abstract text
+% \end{abstract}
+
+\vspace{1cm}
+\renewcommand{\contentsname}{Table of contents}
+\tableofcontents
+
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+
+\section{Project description}
+
+\subsection{Project Context}
+
+Philip Morris International (PMI) is a global cigarette and tobacco company with headquarters in Lausanne. The
+research and development program of PMI focuses on the development of products with the potential to reduce
+the risk of tobacco related diseases. To this end, new products are tested against ordinary cigarettes by
+exposing human tissue cultures to smoke or aerosol of both products. The effect of the exposure is then
+analyzed by observing different features of the tissue, one of which is the ciliary beating.
+
+
+\subsection{Goals and Objectives of the Project}
+
+The goal of this project is to implement a tool for the automatic analysis of ciliary beating in tissue movies. Concretely the objectives are the following:
+\begin{itemize}
+\item Allowing batch processing of video-data contained in a folder (including subfolders). 
+\item Pre-processing of the video data in order to remove noise by smoothing with a customizable 3D kernel.
+\item Scoring the tissue surface activity using simple descriptive statistics and storing the results in an
+  activity image.
+\item Determine the frequency distribution given per region of interest (ROI) and extract the
+  dominant frequency.
+\item Processing should be possible on multiple scales, i.e. ROI of variable size. 
+\item Illustrate the phase of the beating frequency in regions of similar beating frequency.
+\end{itemize}
+
+Part of the project will also be an evaluation of the performance of different techniques applied to the problem and other research such as:
+\begin{itemize}
+\item Evaluating the effect of the ROI size on performance.
+\item Evaluating the probable shape of the beating pattern on a “by cilia beating movie” basis.
+\item Comparing different techniques for the frequency analysis (e.g. FFT, wavelet transform, autocorrelation, …).
+\end{itemize}
+
+Given the scope of this project and the relatively large amount of objectives, it should be noted that some of the objectives are being given a higher priority than others. The ultimate goal of this project is to provide a tool for frequency analysis and task-priorities will therefore be weighted with this goal in mind. This means for example that de-noising, a whole subject on it’s own, will not be studied and evaluated as extensively as techniques for frequency analysis. 
+
+ 
+%----------------------------------------------------------------------------------------
+%	SECTION 2
+%----------------------------------------------------------------------------------------
+
+\section{Methodology}
+
+The implementation of the tool will be carried out in Matlab. The decision to use Matlab has been taken in agreement with the client and is based on the ease of handling image and video processing and the relatively fast development time that Matlab provides.  Matlab requires a license to be used. Philip Morris International has an enterprise license and we have our respective university licenses, so this won’t be a problem. Git will be used as version control tool.
+
+Development will be done in an incremental and iterative fashion roughly following the SCRUM framework. The objectives will be distributed across sprints of two weeks each. Sprint planning of the first sprint has already been done and has the goal of providing an implementation of the minimal requirements. To keep track of the progress and help manage the project we will make use of Taiga, an open source project management platform similar to JIRA. Both the client and project stakeholders will have access to Taiga and will be able to follow the progress if they wish to do so. 
+
+To ensure correctness of the implementation, testing using synthetic test-data will be an essential part or the development process. In order to further improve code-quality, code reviews by the other respective developer will be performed for every major task.
+
+\subsection{State of the art}
+
+The arguably most accurate method for analyzing the ciliary beating frequency is the direct measurement from high-speed video recordings. This is of course very time-consuming and therefore several automated methods have been proposed. The most commonly used approaches for the automated analysis of ciliary beating are based on using the Fast Fourier Transform (FFT) to analyze intensity-signals in a region of interest and will be the principal approach and starting point for further exploration used in this project. Other methods such as photomultiplier and modified photodiode techniques rely on different hardware and inputs and are therefore not considered.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 3
+%----------------------------------------------------------------------------------------
+
+\section{Deliverable goods\todo{This section is not in the generic report provided on Ilias, so maybe we can
+  remove it}}
+
+The main deliverable is the code for a Matlab toolbox for batch analysis of a folder and its subfolders,
+containing 8bit grey scale .avi files.  Along with the code a short but concise documentation and a demo or
+tutorial on how to use the tools will be shipped. Rather than having very extensive documentation, the client
+asked for minimal documentation but an emphasis on meaningful variable and function naming.
+
+This final report on the project will explain the applied methods and also report the results of the more
+research related tasks concerning the performance of the different techniques. Here we will also mention
+outstanding issues or ideas for future improvement of the tools.
+
+The logbook we will be using during our work on the project will also be delivered with each sprint-release of
+the tool. The logbook will be an Excel sheet containing the task accomplished, the assignee, duration and a
+short description.
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION 4
+%----------------------------------------------------------------------------------------
+
+\section{Methods used in the implementation}
+
+Describe the methods used in the implementation, and why we chose these methods
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION 5
+%----------------------------------------------------------------------------------------
+
+\section{Performances and results}
+Analysis of the tool, such as
+\begin{itemize}
+\item effect of ROI size on performance;
+\item time consumption of the different techniques;
+\item comparison of performance with different parameters (denoising, ...).
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION 6
+%----------------------------------------------------------------------------------------
+
+\section{Recommendations}
+
+
+\subsection{Statement of recommendations}
+
+
+\subsection{Limitations}
+
+
+\subsection{Outstanding issues and perspective for future work}
+
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION 7
+%----------------------------------------------------------------------------------------
+
+\section{[Other relevant section]}
+
+
+
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+
+
+\end{document}
