@@ -18,12 +18,13 @@ data = single(permute(data,[3,1,2]));   % Use single because of memory
 Y = fft(data, n);           % DFT
 clear data;
 power = Y.*conj(Y)/n;       % Power of the DFT
-phase = angle(fftshift(Y, 1));
+phase = angle(Y);
+
 clear Y;
 f = (0:n-1)*(fs/n);         % Frequency range
 
 % Get index of dominant frequencies > 1Hz per ROI
-validFreq = find(f>1 & f<fs/2);
+validFreq = find(f>2 & f<fs/2);
 f = f(validFreq);
 power = power(validFreq(:),:,:);
 phase = phase(validFreq(:),:,:);
@@ -32,9 +33,14 @@ phase = phase(validFreq(:),:,:);
 % Get pixel-wise dominant frequencies
 domFreqs = f(domFreqIdx);
 domFreqs = squeeze(domFreqs);
+
 % And corresponding phase
-domPhase = phase(domFreqIdx);
-domPhase = squeeze(domPhase);
+domPhase = zeros(size(phase,2), size(phase,3));
+for i=1:size(phase,2)
+    for j = 1:size(phase,3)
+        domPhase(i, j) = phase(domFreqIdx(1, i, j), i, j);
+    end
+end
 
 end
 

@@ -332,10 +332,13 @@ data = handles.data;
 
 % Activity
 axes(handles.activity_plot);
+activity = [];
 if handles.activityFFT
-    generateActivityImage( activityFromPower(data.power), 'Activity: FFT-Power' );
+    activity = activityFromPower(data.power);
+    generateActivityImage( activity, 'Activity: FFT-Power' );
 else
-    generateActivityImage( data.activity, 'Activity: Entropy' );
+    activity = data.activity;
+    generateActivityImage( activity, 'Activity: Entropy' );
 end
 set(gcf,'WindowButtonDownFcn',@(hObject,eventdata)gui('activity_plot_ButtonDownFcn',hObject,eventdata,guidata(hObject)))
 hold on
@@ -344,7 +347,7 @@ hold off
 
 % The mask
 axes(handles.mask);
-mask = activityMask( data.activity, handles.lq, handles.hq );
+mask = activityMask( activity, handles.lq, handles.hq );
 imagesc(mask);
 title('Activity Mask');
 

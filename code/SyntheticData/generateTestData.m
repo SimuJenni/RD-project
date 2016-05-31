@@ -9,30 +9,30 @@ oscFun = simpleSine;
 dim = [240,320,3];
 
 % 1st block (Freq:10 Hz, amp:1, phase:0, density:1)
-freqs = 10;
-amps = 0.5;
-phases = 0;
-density = 0.6;
+freqs = 5;
+amps = 0.3;
+phases = 0:3;
+density = 1;
 block1 = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
 % 2nd block (Freq:2-20 Hz, amp:0.5, phase:0-pi, density=1)
-freqs = 20;
-amps = 0.5;
-phases = 0.5*pi;
-density = 0.6;
+freqs = 5;
+amps = 0.3;
+phases = 0:3;
+density = 1;
 block2 = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
 % 3nd block (Freq:20-40 Hz, amp:0-1, phase:1.5*pi, density=0.5)
-freqs = 30;
-amps = 0.5;
-phases = pi;
-density = 0.6;
+freqs = 20;
+amps = 0.7;
+phases = 2;
+density = 1;
 block3 = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
 % 4th block (Freq:15 Hz, amp:0.5-1, phase:0, density=0.8)
 freqs = 5:25;
 amps = 0.5:0.05:1;
-phases = 0:2*pi;
+phases = 3;
 density = 1;
 block4 = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
@@ -62,4 +62,4 @@ writeSynthVideo(noisyData, 'synthDirty' );
 % disp('Write data to video...')
 % writeSynthVideo(synthData, 'synth10Hz' );
 
-batchExtractFolder( 'data/synthetic/', extractedDir, false );
+batchExtractFolder( 'data/synthetic/', extractedDir, true );

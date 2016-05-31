@@ -5,7 +5,7 @@ function [ mask ] = activityMask( activity, lowQ, highQ )
 lowB = quantile(activity(:), lowQ);
 highB = quantile(activity(:), highQ);
 
-mask = (activity > lowB) & (activity < highB);
+mask = (activity >= lowB) & (activity <= highB);
 
 end
 

@@ -16,7 +16,7 @@ denoise = @(x) filter3d(x, filterDims, sigmas);
 roiSize = [3, 4];
 % roiSize = [6, 8];
 % roiSize = 1;
-batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir, denoise , 'both' )
+batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir, denoise , 'fft' )
 
 %delete(POOL);
 
