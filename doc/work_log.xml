@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13080</WindowHeight>
+  <WindowHeight>9320</WindowHeight>
   <WindowWidth>28740</WindowWidth>
   <WindowTopX>-20</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -185,7 +185,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="work_log.csv">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="64" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="66" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="62"/>
    <Column ss:AutoFitWidth="0" ss:Width="244"/>
@@ -643,6 +643,20 @@
     <Cell ss:StyleID="s84"><Data ss:Type="DateTime">2016-05-30T00:00:00.000</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Bug-ficing and testing</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Fixed bugs in GUI and phase computation</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-05-31T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Started implementation of function that estimates probable beating pattern</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-05-31T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -662,11 +676,11 @@
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
-   <TopRowVisible>27</TopRowVisible>
+   <TopRowVisible>46</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>64</ActiveRow>
+     <ActiveRow>66</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
