@@ -1,8 +1,19 @@
 function [ shape ] = probableShapeFromData( dominantFreqs, phase, data,...
     activity, fs )
-%PROBABLESHAPEFROMDATA Computes the probable beating pattern from the
-%results of the FFT and the underlying data.
-%   Detailed explanation goes here
+%PROBABLESHAPEFROMDATA Computes the probable shape of the beating pattern 
+%from the results of the FFT and the underlying data.
+%Note: The FFT should be computed using ROI-size=1 for use with this 
+%function.
+% Input:
+%   dominantFreqs - 2D array of size (w x h) with dominant frequencies per 
+%                   pixel 
+%   phase - 2D array of corresponding phases per pixel
+%   data - 3D array of extracted video data of size (w x h x t)
+%   activity - 2D array of activities phases per pixel
+%   fs - Sampling frequency of the input data
+% Output:
+%   shape - Curve fitted to the data using smoothing-splines
+% See also PERFORMFFT, COMPUTEENTROPY, ACTIVITYFROMPOWER.
 
 % Get frequency region with most ROIs
 [N,edges] = histcounts(dominantFreqs(dominantFreqs>4),200);

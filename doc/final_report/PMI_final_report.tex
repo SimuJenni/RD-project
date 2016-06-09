@@ -23,6 +23,9 @@
 
 %\usepackage{times} % Uncomment to use the Times New Roman font
 
+\usepackage{listings}
+\usepackage[framed,autolinebreaks,useliterate]{mcode}
+
 
 %----------------------------------------------------------------------------------------
 %	DOCUMENT INFORMATION
@@ -158,6 +161,126 @@ considered.
 %----------------------------------------------------------------------------------------
 
 \section{Realisation} 
+
+\subsection{Frequency Analysis}
+
+\begin{minipage}{\linewidth}
+  \begin{lstlisting}[caption={Function performing the frequency analysis using the FFT.}, label=list:res]
+function [ power, f, domFreqs, domPhase ] = performFFT( data, fs )
+%PERFORMFFT performs frequency analysis using the fast fourier transform
+% Input:
+%   data - 3D array of extracted video data (width x height x frames)
+%   fs - Sampling frequency of the input data
+% Output:
+%   power - Power of resulting discrete fourier transform
+%   f - Frequency range
+%   domFreqs - Dominant frequency per region of interest 
+%   domPhase - Phase corresponding to dominant frequency
+% See also BATCHANALYSEFOLDER, WTANALYSIS.
+  \end{lstlisting}
+\end{minipage}
+
+
+
+\subsection{Activity Analysis}
+
+\begin{minipage}{\linewidth}
+  \begin{lstlisting}[caption={Function performing the activity analysis using entropy.}, label=list:res]
+function entropy = computeEntropy(data) 
+%COMPUTEENTROPY Computes pixel-wise entropy of the provided video-data.
+% Input:
+%   data - 3D array of extracted video data (width x height x frames)
+% Output:
+%   entropy - 2D array of size (width x height) where entropy(i,j) is the
+%             entropy along data(i,j,:)
+% See also PLOTRESULTS, ACTIVITYFROMPOWER.
+  \end{lstlisting}
+\end{minipage}
+
+\subsection{Smoothing for Noise-Removal}
+
+\begin{minipage}{\linewidth}
+  \begin{lstlisting}[caption={Function performing the noise removal.}, label=list:res]
+function [ data ] = filter3d( data, dims, sigmas, type )
+%FILTER3D Filters the provided 3D-array data with a 3D-gaussian kernel with
+%dimensions specified in dims and gaussians with standard-deviations
+%specified by sigmas. Filtering in 'time' can optionally be performed using
+%median-filtering.
+% Input:
+%   data - 3D array (width x height x frames)
+%   dims - Vector (hx, hy, hz) of filter dimensions
+%   sigmas - Vector (sx, sy, sz) parameters for gaussian filters
+%   type - 'gaussian' or 'median' defining type of 3rd dimension filter
+% Output:
+%   data - filtered input
+% See also BATCHANALYSEFOLDER.
+  \end{lstlisting}
+\end{minipage}
+
+\subsection{Extracting Probable Beating Pattern}
+
+\begin{minipage}{\linewidth}
+  \begin{lstlisting}[caption={Function for extracting the probable beating pattern.}, label=list:res]
+function [ shape ] = probableShapeFromData( dominantFreqs, phase, data,...
+    activity, fs )
+%PROBABLESHAPEFROMDATA Computes the probable shape of the beating pattern 
+%from the results of the FFT and the underlying data.
+%Note: The FFT should be computed using ROI-size=1 for use with this 
+%function.
+% Input:
+%   dominantFreqs - 2D array of size (w x h) with dominant frequencies per 
+%                   pixel 
+%   phase - 2D array of corresponding phases per pixel
+%   data - 3D array of extracted video data of size (w x h x t)
+%   activity - 2D array of activities phases per pixel
+%   fs - Sampling frequency of the input data
+% Output:
+%   shape - Curve fitted to the data using smoothing-splines
+% See also PERFORMFFT, COMPUTEENTROPY, ACTIVITYFROMPOWER.  
+\end{lstlisting}
+\end{minipage}
+
+
+\subsection{Batch Processing of the Data}
+
+\begin{minipage}{\linewidth}
+  \begin{lstlisting}[caption={Function for extracting data from videos.}, label=list:res]
+function batchExtractFolder( extractFolder, storeFolder, reload )
+%BATCHEXTRACTFOLDER Extracts data of all the videos in the folder 
+%extractFolder (including subfolders) and saves it to storeFolder for later 
+%analysis. Note that if reload is set to false and the video has already 
+%been extracted, the video will not be extracted again.
+% Input:
+%   folderPath - String indicating the path of the video-data
+%   storeFolder - Folder where the extracted data should be stored
+%   reload - Boolean value (already extracted videos skipped if false)
+% See also EXTRACTVIDEODATA, SAVEEXTRACTEDDATA and ALREADYEXTRACTED.
+\end{lstlisting}
+\end{minipage}
+
+\begin{minipage}{\linewidth}
+  \begin{lstlisting}[caption={Function for analysing extracted data.}, label=list:res]
+function batchAnalyseFolder( folderPath, fs, roiSize, resultsDir,...
+    preProcess, method, waveletType )
+%BATCHANALYSEFOLDER Anlayses all files in the given folder using the
+%specified parameters and saves the results to the folder resultsDir.
+% Input:
+%   folderPath - Path to folder of exctracted video files to be analysed
+%   fs - Sampling frequency of the data to be analysed
+%   roiSize - Integer or vector [sx, sy] specifying the ROI-size
+%   resultsDir - Path to directory where results should be stored
+%   preProcess - Function handle for pre-processing function of extracted
+%                data (e.g. denoising)
+%   method - String indicating which method to use for analysis ("wt",
+%            "fft" or "both")
+%   waveletType - Specifies which wavelet to use for the wavelet transform.
+%                 'morl' is used by default
+% See also BATCHEXTRACTFOLDER, FILTER3D.
+\end{lstlisting}
+\end{minipage}
+
+
+\subsection{GUI}
 
 
 %----------------------------------------------------------------------------------------

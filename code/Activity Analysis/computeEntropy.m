@@ -1,5 +1,11 @@
 function entropy = computeEntropy(data) 
 %COMPUTEENTROPY Computes pixel-wise entropy of the provided video-data.
+% Input:
+%   data - 3D array of extracted video data (width x height x frames)
+% Output:
+%   entropy - 2D array of size (width x height) where entropy(i,j) is the
+%             entropy along data(i,j,:)
+% See also PLOTRESULTS, ACTIVITYFROMPOWER.
 
 % Initialize empty array that will contain the pixel-wise entropy
 entropy = zeros(size(data, 1),size(data, 2));

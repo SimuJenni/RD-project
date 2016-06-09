@@ -8,6 +8,8 @@ function [ power, f, domFreqs, domPhase ] = performFFT( data, fs )
 %   f - Frequency range
 %   domFreqs - Dominant frequency per region of interest 
 %   domPhase - Phase corresponding to dominant frequency
+% See also BATCHANALYSEFOLDER, WTANALYSIS.
+
 
 m = size(data,3);           % Window length
 n = pow2(nextpow2(m));      % Transform length

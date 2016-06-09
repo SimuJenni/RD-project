@@ -3,15 +3,17 @@ function batchAnalyseFolder( folderPath, fs, roiSize, resultsDir,...
 %BATCHANALYSEFOLDER Anlayses all files in the given folder using the
 %specified parameters and saves the results to the folder resultsDir.
 % Input:
-%   folderPath - Relative path to folder of files to be analysed.
+%   folderPath - Path to folder of exctracted video files to be analysed
 %   fs - Sampling frequency of the data to be analysed
-%   roiSize - Size of the region of interes (ROI)
+%   roiSize - Integer or vector [sx, sy] specifying the ROI-size
 %   resultsDir - Path to directory where results should be stored
 %   preProcess - Function handle for pre-processing function of extracted
-%                data
+%                data (e.g. denoising)
 %   method - String indicating which method to use for analysis ("wt",
 %            "fft" or "both")
-%   waveletType - Specifies which wavelet to use for the wavelet transform 
+%   waveletType - Specifies which wavelet to use for the wavelet transform.
+%                 'morl' is used by default
+% See also BATCHEXTRACTFOLDER, FILTER3D.
 
 if nargin < 7
     waveletType = 'morl';
@@ -54,7 +56,6 @@ parfor idx = 1:numFiles
         disp('Computing FFT...')
         [ power, freqs, domFreqs, domPhase ] = performFFT( file.data, fs );
         disp('Finished computing FFT.')
-
 
         % Save the results
         saveDir = [resultsDir 'FFT/ROI ' num2str(roiSize) '/'];

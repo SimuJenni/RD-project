@@ -1,24 +1,24 @@
-function batchExtractFolder( folderPath, storeFolder, reload )
-%BATCHEXTRACTFOLDER Extracts and saves all data from all the videos in the 
-%given folder (including subfolders). Note that if reload is set to false 
-%and the video has already been extracted, the video will not be extracted
-%again.
+function batchExtractFolder( extractFolder, storeFolder, reload )
+%BATCHEXTRACTFOLDER Extracts data of all the videos in the folder 
+%extractFolder (including subfolders) and saves it to storeFolder for later 
+%analysis. Note that if reload is set to false and the video has already 
+%been extracted, the video will not be extracted again.
 % Input:
-%   folderPath - String indicating the relative folder-path
-%   storeFolder - Folder where the extracted data should be saved
+%   folderPath - String indicating the path of the video-data
+%   storeFolder - Folder where the extracted data should be stored
 %   reload - Boolean value (already extracted videos skipped if false)
 % See also EXTRACTVIDEODATA, SAVEEXTRACTEDDATA and ALREADYEXTRACTED.
 
 disp('========================================================');
-disp(['Processing folder: ' folderPath]);
+disp(['Processing folder: ' extractFolder]);
 
 % Get a list of all .avi files
-FileList = dir([folderPath '*.avi']); 
+FileList = dir([extractFolder '*.avi']); 
 
 % Extract data from all the videos
 numVideos = length(FileList); 
 parfor idx = 1:numVideos
-    videoPath = [folderPath FileList(idx).name];
+    videoPath = [extractFolder FileList(idx).name];
     disp(['Processing video ' num2str(idx) '/' num2str(numVideos) ': '...
         videoPath]);
     % Check if data should be extracted
@@ -31,13 +31,13 @@ parfor idx = 1:numVideos
 end
 
 % Get all valid sub-directories
-dirData = dir(folderPath);
+dirData = dir(extractFolder);
 subDirs = {dirData([dirData.isdir]).name};  
 validSubDirs = subDirs(~ismember(subDirs,{'.','..'})); 
 
 % Process the subfolders
 for idx = 1:length(validSubDirs)
-    subFolder = [folderPath validSubDirs{idx} '/'];
+    subFolder = [extractFolder validSubDirs{idx} '/'];
     batchExtractFolder( subFolder, storeFolder, reload );
 end
 

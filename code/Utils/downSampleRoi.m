@@ -1,10 +1,12 @@
 function [ downsampled ] = downSampleRoi( data, roiSize )
-%DOWNSAMPLEROI Perfoms downsampling by avaraging ROI.
+%DOWNSAMPLEROI Perfoms downsampling by avaraging data corresponding to the 
+%specified ROI size.
 % Input:
-%   data - 3D-array of input video-data (width x height x frames)
-%   roiSize - Integer or vector [x,y] specifying the ROI-size
+%   data - 3D-array of input video-data  of size (w x h x f)
+%   roiSize - Integer or vector [sx, sy] specifying the ROI-size
 % Output:
-%   downSampled - Downsampled data
+%   downSampled - Downsampled data of size (w/sy x h/sx x f)
+% See also BATCHANALYSEFOLDER.
 
 if isscalar(roiSize)
     roiSize = [roiSize roiSize];

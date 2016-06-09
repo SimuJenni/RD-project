@@ -1,13 +1,16 @@
 function [ data ] = filter3d( data, dims, sigmas, type )
-%FILTER3D Filters the provided 3d-array data with a 3d-gaussian kernel with
-%dimensions specified in dims and gaussians specidied by sigmas.
+%FILTER3D Filters the provided 3D-array data with a 3D-gaussian kernel with
+%dimensions specified in dims and gaussians with standard-deviations
+%specified by sigmas. Filtering in 'time' can optionally be performed using
+%median-filtering.
 % Input:
 %   data - 3D array (width x height x frames)
-%   dims - (hx, hy, hz) of filter dimensions
-%   sigmas - (sx, sy, sz) parameters for gaussian filters
-%   type - 'gaussian' or 'median' defining type of third-dim filter
+%   dims - Vector (hx, hy, hz) of filter dimensions
+%   sigmas - Vector (sx, sy, sz) parameters for gaussian filters
+%   type - 'gaussian' or 'median' defining type of 3rd dimension filter
 % Output:
 %   data - filtered input
+% See also BATCHANALYSEFOLDER.
 
 %% Check inputs
 
