@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9320</WindowHeight>
+  <WindowHeight>5560</WindowHeight>
   <WindowWidth>28740</WindowWidth>
   <WindowTopX>-20</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -185,7 +185,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="work_log.csv">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="66" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="67" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="62"/>
    <Column ss:AutoFitWidth="0" ss:Width="244"/>
@@ -657,6 +657,13 @@
     <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-05-31T00:00:00.000</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Development</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Improved probable shape estimation using function fitting via smoothing splines</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-06-08T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -676,12 +683,12 @@
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
-   <TopRowVisible>46</TopRowVisible>
+   <TopRowVisible>54</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>66</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
