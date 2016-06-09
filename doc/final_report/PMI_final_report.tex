@@ -81,7 +81,7 @@ Supervisor: & Patrice Leroy: & \href{mailto:Patrice.Leroy@pmi.com)}{Patrice.Lero
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-\section{Project description}
+\section{Project Description}
 
 \subsection{Project Context}
 
@@ -89,7 +89,7 @@ Philip Morris International (PMI) is a global cigarette and tobacco company with
 research and development program of PMI focuses on the development of products with the potential to reduce
 the risk of tobacco related diseases. To this end, new products are tested against ordinary cigarettes by
 exposing human tissue cultures to smoke or aerosol of both products. The effect of the exposure is then
-analyzed by observing different features of the tissue, one of which is the ciliary beating.
+analysed by observing different features of the tissue, one of which is the ciliary beating.
 
 
 \subsection{Goals and Objectives of the Project}
@@ -98,28 +98,28 @@ The goal of this project is to implement a tool for the automatic analysis of ci
 movies. Concretely the objectives are the following:
 \begin{itemize}
 \item Allowing batch processing of video-data contained in a folder (including subfolders). 
-\item Pre-processing of the video data in order to remove noise by smoothing with a customizable 3D kernel.
+\item Pre-processing of the video data in order to remove noise by smoothing with a customisable 3D kernel.
 \item Scoring the tissue surface activity using simple descriptive statistics and storing the results in an
   activity image.
-\item Determine the frequency distribution given per region of interest (ROI) and extract the
+\item Determining the frequency distribution given per region of interest (ROI) and extracting the
   dominant frequency.
 \item Processing should be possible on multiple scales, i.e. ROI of variable size. 
-\item Illustrate the phase of the beating frequency in regions of similar beating frequency.
+\item Illustrating the phase of the beating frequency.
 \end{itemize}
 
-Part of the project will also be an evaluation of the performance of different techniques applied to the
-problem and other research such as:
+Part of the project is also an evaluation of the performance of different techniques applied to the
+problem and other research objectives such as:
 
 \begin{itemize}
 \item Evaluating the effect of the ROI size on performance.
-\item Evaluating the probable shape of the beating pattern on a “by cilia beating movie” basis.
-\item Comparing different techniques for the frequency analysis (e.g. FFT, wavelet transform, autocorrelation, …).
+\item Evaluating the probable shape of the beating pattern on a by beating movie basis.
+\item Comparing different techniques for the frequency analysis (e.g. FFT and wavelet transform).
 \end{itemize}
 
 Given the scope of this project and the relatively large amount of objectives, it should be noted that some of
-the objectives are being given a higher priority than others. The ultimate goal of this project is to provide
-a tool for frequency analysis and task-priorities will therefore be weighted with this goal in mind. This
-means for example that de-noising, a whole subject on it’s own, will not be studied and evaluated as
+the objectives have been given a higher priority than others. The ultimate goal of this project is to provide
+a tool for frequency analysis and task-priorities were therefore weighted with this goal in mind. This
+means for example that de-noising, a whole subject on it's own, has not be studied and evaluated as
 extensively as techniques for frequency analysis.
 
  
@@ -129,29 +129,26 @@ extensively as techniques for frequency analysis.
 
 \section{Methodology}
 
-The implementation of the tool will be carried out in Matlab. The decision to use Matlab has been taken in
+The implementation of the tool was carried out in Matlab. The decision to use Matlab has been taken in
 agreement with the client and is based on the ease of handling image and video processing and the relatively
-fast development time that Matlab provides.  Matlab requires a license to be used. Philip Morris International
-has an enterprise license and we have our respective university licenses, so this won’t be a problem. Git will
-be used as version control tool.
+fast development time that Matlab provides.  Git has been used as version control tool.
 
-Development will be done in an incremental and iterative fashion roughly following the SCRUM framework. The
-objectives will be distributed across sprints of two weeks each. Sprint planning of the first sprint has
-already been done and has the goal of providing an implementation of the minimal requirements. To keep track
-of the progress and help manage the project we will make use of Taiga, an open source project management
-platform similar to JIRA. Both the client and project stakeholders will have access to Taiga and will be able
-to follow the progress if they wish to do so.
+Development has been done in an incremental and iterative fashion roughly following the SCRUM framework. The
+objectives have been distributed across sprints of two weeks each. To keep track
+of the progress and help manage the project we have been using Taiga, an open source project management
+platform similar to JIRA. Both the client and project stakeholders were given access to Taiga and have been able
+to follow the progress.
 
-To ensure correctness of the implementation, testing using synthetic test-data will be an essential part or
-the development process. In order to further improve code-quality, code reviews by the other respective
-developer will be performed for every major task.
+Testing of our implementation using synthetic test-data has been an integral part of
+the development process to ensure correctness of the implementation. In order to maintain a high code-quality, code reviews by the other respective
+developer have been performed for every task.
 
 \subsection{State of the art}
 
-The arguably most accurate method for analyzing the ciliary beating frequency is the direct measurement from
+The arguably most accurate method for analysing the ciliary beating frequency is the direct measurement from
 high-speed video recordings. This is of course very time-consuming and therefore several automated methods
 have been proposed. The most commonly used approaches for the automated analysis of ciliary beating are based
-on using the Fast Fourier Transform (FFT) to analyze intensity-signals in a region of interest and will be the
+on using the Fast Fourier Transform (FFT) to analyse intensity-signals in a region of interest and has been the
 principal approach and starting point for further exploration used in this project. Other methods such as
 photomultiplier and modified photodiode techniques rely on different hardware and inputs and are therefore not
 considered.
@@ -160,37 +157,15 @@ considered.
 %	SECTION 3
 %----------------------------------------------------------------------------------------
 
-\section{Deliverable goods\todo{This section is not in the generic report provided on Ilias, so maybe we can
-  remove it}}
-
-The main deliverable is the code for a Matlab toolbox for batch analysis of a folder and its subfolders,
-containing 8bit grey scale .avi files.  Along with the code a short but concise documentation and a demo or
-tutorial on how to use the tools will be shipped. Rather than having very extensive documentation, the client
-asked for minimal documentation but an emphasis on meaningful variable and function naming.
-
-This final report on the project will explain the applied methods and also report the results of the more
-research related tasks concerning the performance of the different techniques. Here we will also mention
-outstanding issues or ideas for future improvement of the tools.
-
-The logbook we will be using during our work on the project will also be delivered with each sprint-release of
-the tool. The logbook will be an Excel sheet containing the task accomplished, the assignee, duration and a
-short description.
+\section{Realisation} 
 
 
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
 
-\section{Methods used in the implementation}
+\section{Results}
 
-Describe the methods used in the implementation, and why we chose these methods
-
-
-%----------------------------------------------------------------------------------------
-%	SECTION 5
-%----------------------------------------------------------------------------------------
-
-\section{Performances and results}
 Analysis of the tool, such as
 \begin{itemize}
 \item effect of ROI size on performance;
@@ -206,13 +181,13 @@ Analysis of the tool, such as
 \section{Recommendations}
 
 
-\subsection{Statement of recommendations}
+\subsection{Statement of Recommendations}
 
 
 \subsection{Limitations}
 
 
-\subsection{Outstanding issues and perspective for future work}
+\subsection{Outstanding Issues and Perspective for Future Work}
 
 
 
