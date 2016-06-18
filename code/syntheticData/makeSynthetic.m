@@ -41,5 +41,7 @@ for i=1:width
     end    
 end
 
+synthData = subtractMean(single(synthData));
+
 end
 

@@ -1,5 +1,7 @@
 setup;
 
+storeFolder = extractedDir; % Where the synthetic axamples are stored
+
 %% Generate synthetic example 1
 
 disp('Generating synthetic data...')
@@ -9,57 +11,60 @@ oscFun = simpleSine;
 dim = [240,320,3];
 
 % 1st block (Freq:10 Hz, amp:1, phase:0, density:1)
-freqs = 5;
-amps = 0.3;
-phases = 0:3;
+freqs = 10;
+amps = 1;
+phases = 0;
 density = 1;
 block1 = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
 % 2nd block (Freq:2-20 Hz, amp:0.5, phase:0-pi, density=1)
-freqs = 5;
-amps = 0.3;
-phases = 0:3;
+freqs = 2:0.05:20;
+amps = 0.5;
+phases = 0:0.05:pi;
 density = 1;
 block2 = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
 % 3nd block (Freq:20-40 Hz, amp:0-1, phase:1.5*pi, density=0.5)
-freqs = 20;
-amps = 0.7;
-phases = 2;
-density = 1;
+freqs = 20:0.05:40;
+amps = 0:0.05:1;
+phases = 1.5*pi;
+density = 0.5;
 block3 = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
 % 4th block (Freq:15 Hz, amp:0.5-1, phase:0, density=0.8)
-freqs = 5:25;
+freqs = 15;
 amps = 0.5:0.05:1;
-phases = 3;
-density = 1;
+phases = 0;
+density = 0.8;
 block4 = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
 
 % Combine blocks
-synthData = [block1, block2;
+data = [block1, block2;
              block3, block4];
-disp('Write data to video...')
-writeSynthVideo(synthData, 'synthClean' );
+         
+save(strcat(storeFolder, 'synth1Clean', '.mat'), 'data');
 
 % Noisy version
 disp('Add noise to data...')
-noisyData = addNoise( synthData, 0.5 );
-disp('Write data to video...')
-writeSynthVideo(noisyData, 'synthDirty' );
+data = addNoise( data, 0.5 );
 
-% %% Generate synthetic example 2
-% 
-% % Only 1 block (Freq:10 Hz, amp:0.5-1, phase:0-pi, density:1)
-% disp('Generating synthetic data...')
-% dim = [480,640,3];
-% freqs = 10;
-% amps = 0.5:0.05:1;
-% phases = 0:0.05:pi;
-% density = 1;
-% synthData = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
-% 
-% disp('Write data to video...')
-% writeSynthVideo(synthData, 'synth10Hz' );
+save(strcat(storeFolder, 'synth1Noisy', '.mat'), 'data');
 
-batchExtractFolder( 'data/synthetic/', extractedDir, true );
+%% Generate synthetic example 2
+
+% Only 1 block (Freq:10 Hz, amp:0.5-1, phase:0-pi, density:1)
+disp('Generating synthetic data...')
+dim = [480,640,3];
+freqs = randn(1, 480*640)+10.0;
+amps = 0.5:0.05:1;
+phases = 0:0.01:2*pi;
+density = 1;
+data = makeSynthetic(oscFun, dim, freqs, amps, phases, density);
+
+save(strcat(storeFolder, 'synth2Clean', '.mat'), 'data');
+
+% Noisy version
+disp('Add noise to data...')
+data = addNoise( data, 0.8 );
+
+save(strcat(storeFolder, 'synth2Noisy', '.mat'), 'data');
