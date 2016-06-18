@@ -60,7 +60,17 @@ parfor idx = 1:numFiles
         % Save the results
         saveDir = [resultsDir 'FFT/ROI ' num2str(roiSize) '/'];
         fPath = [saveDir '/' fileName];
-        saveResults(saveDir, fPath, file.data, power, freqs, domFreqs, domPhase)
+        activity = saveResults(saveDir, fPath, file.data, power, freqs,...
+            domFreqs, domPhase)
+        
+        if(roiSize==1)
+            fig = figure();
+            % Compute and save propable shape
+            probableShapeFromData(domFreqs, domPhase, file.data, activity, fs);
+            % Save plot
+            print([fPath '_Shape.png'],'-dpng','-r0');
+            close(fig);
+        end
     end
 
     if strmatch(method, {'wt' 'both'})
@@ -81,7 +91,7 @@ disp(['DONE! Runtime: ' num2str(toc)])
 
 end
 
-function saveResults(saveDir, fileName, data, power, freqs, ...
+function activity = saveResults(saveDir, fileName, data, power, freqs, ...
     dominantFreqs, dominantPhase)
 
     % Check if save folders exists and create if not
@@ -92,7 +102,7 @@ function saveResults(saveDir, fileName, data, power, freqs, ...
     % Plots
     disp('Generating plots...');
     fig = figure( 'Position', [100, 100, 1024, 700]);
-    activity = plotResults( data, power, freqs, dominantFreqs );
+    activity = plotResults( data, power, freqs, dominantFreqs, dominantPhase );
 
     % Save plots
     filePath = [fileName '_Results.png'];
