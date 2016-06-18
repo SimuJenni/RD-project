@@ -32,8 +32,8 @@ load([extractedDir 'Cylia_beating_movie.mat'])
 [ power, f, domFreqs, domPhase ] = performFFT( data, fs );
 
 %% Demo activity image
-activity = fftPowerActivity( power );
-activity = computeEntropy( data );
+activity = activityFromPower( power );
+% activity = computeEntropy( data );
 generateActivityImage( activity, 'Entropy' );
 
 %% Demo probable shape extraction
