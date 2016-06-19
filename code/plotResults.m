@@ -44,12 +44,18 @@ ylabel('Count')
 title('{\bf Dominant Frequencies per ROI (Masked)}')
 
 %% Distribution of dominant phases
-subplot(3,3,9);
-maskedPhase = dominantPhase(mask);
-histogram(maskedPhase,100);
-xlabel('Phase (rad)')
-ylabel('Count')
-title('{\bf Dominant Phase per ROI (Masked)}')
+% Dominant phases are not implemented for WT => if size of domPhase=[0 0]
+% then don't run the following
+if ~(size(dominantPhase) == [0 0])
+    subplot(3,3,9);
+    disp(size(mask));
+    disp(size(dominantPhase));
+    maskedPhase = dominantPhase(mask);
+    histogram(maskedPhase,100);
+    xlabel('Phase (rad)')
+    ylabel('Count')
+    title('{\bf Dominant Phase per ROI (Masked)}')
+end
 
 
 end
