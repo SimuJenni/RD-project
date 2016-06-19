@@ -38,11 +38,11 @@ denoise = @(x) filter3d(x, filterDims, sigmas);
 % disp(['Finished analyzing folder with WT and ROI [3 4] in: ' num2str(timeWTRoi34)])
 
 roiSize = [6 8];
-% tic
-% batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir, denoise , 'fft' )
-% timeFFTRoi68 = toc;
-% meanTimePerVideoFFTRoi68 = timeFFTRoi68 / 77;
-% disp(['Finished analyzing folder with FFT and ROI [6 8] in: ' num2str(timeFFTRoi68)])
+tic
+batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir, denoise , 'fft' )
+timeFFTRoi68 = toc;
+meanTimePerVideoFFTRoi68 = timeFFTRoi68 / 77;
+disp(['Finished analyzing folder with FFT and ROI [6 8] in: ' num2str(timeFFTRoi68)])
 tic
 batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir, denoise , 'wt' )
 timeWTRoi68 = toc;
