@@ -48,8 +48,6 @@ title('{\bf Dominant Frequencies per ROI (Masked)}')
 % then don't run the following
 if ~(size(dominantPhase) == [0 0])
     subplot(3,3,9);
-    disp(size(mask));
-    disp(size(dominantPhase));
     maskedPhase = dominantPhase(mask);
     histogram(maskedPhase,100);
     xlabel('Phase (rad)')
