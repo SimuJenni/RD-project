@@ -7,9 +7,9 @@ addpath(genpath('./'));
 fs = 90;    % Sampling frequency
 
 % Data directories
-videoDir = '../data/';
-extractedDir = '../extracted_data/';
-resultsDir = '../results/';
+videoDir = './data/';
+extractedDir = './extracted_data/';
+resultsDir = './results/';
 
 % Check if data folder exists and create if not
 if (~exist(videoDir,'dir'))
