@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9580</WindowHeight>
-  <WindowWidth>28740</WindowWidth>
+  <WindowHeight>12200</WindowHeight>
+  <WindowWidth>28820</WindowWidth>
   <WindowTopX>-20</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -185,7 +185,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="work_log.csv">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="69" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="72" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="62"/>
    <Column ss:AutoFitWidth="0" ss:Width="244"/>
@@ -678,6 +678,27 @@
     <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-06-18T00:00:00.000</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Speed tests</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Wrote speed tests (and did not work because of bugs)</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="DateTime">2016-06-19T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Speed tests</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Modified speed tests</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="DateTime">2016-06-20T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Laurent</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Final report</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Added results to final report</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="DateTime">2016-06-20T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -701,7 +722,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>69</ActiveRow>
+     <ActiveRow>74</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
