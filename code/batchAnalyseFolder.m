@@ -61,7 +61,7 @@ parfor idx = 1:numFiles
         saveDir = [resultsDir 'FFT/ROI ' num2str(roiSize) '/'];
         fPath = [saveDir '/' fileName];
         activity = saveResults(saveDir, fPath, file.data, power, freqs,...
-            domFreqs, domPhase)
+            domFreqs, domPhase);
         
         if(roiSize==1)
             fig = figure();
@@ -83,7 +83,7 @@ parfor idx = 1:numFiles
         % Save the results
         saveDir = [resultsDir 'WT/ROI ' num2str(roiSize) '/'];
         fPath = [saveDir '/' fileName];
-        saveResults(saveDir, fPath, file.data, power, freqs, domFreqs, domPhase)
+        saveResults(saveDir, fPath, file.data, power, freqs, domFreqs, domPhase);
     end    
 end
 disp(['DONE! Runtime: ' num2str(toc)])
