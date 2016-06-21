@@ -1,7 +1,6 @@
 setup;
 
 %% Demo for loading and extraction of video data
-%POOL = parpool(2);
 tic
 batchExtractFolder( videoDir, extractedDir, false );
 disp(['Extraction DONE! Runtime: ' num2str(toc)])
@@ -13,14 +12,12 @@ filterDims = [3, 3, 3];     % diemensions of 3d gaussian kernel
 sigmas = [0.3, 0.3, 0.5];   % parameters for gaussians
 denoise = @(x) filter3d(x, filterDims, sigmas);
 
+roiSize = 1;
 % roiSize = [3, 4];
 % roiSize = [6, 8];
-roiSize = 1;
 batchAnalyseFolder( extractedDir, fs, roiSize, resultsDir, denoise , 'fft')
 
-%delete(POOL);
-
-% Launch the GUI for interpretation of the results
+%% Launching the GUI for interpretation of the results
 gui
 
 %% Demo using WT
@@ -37,4 +34,5 @@ activity = activityFromPower( power );
 generateActivityImage( activity, 'Entropy' );
 
 %% Demo probable shape extraction
+load([resultsDir 'FFT/ROI 1/Cylia_beating_movie.mat'])
 shape = probableShapeFromData( dominantFreqs, dominantPhase, data, activity, fs );
