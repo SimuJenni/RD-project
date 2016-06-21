@@ -380,6 +380,34 @@ closer to the results we obtain with the fast Fourier transform.
 \subsection{Comparison of the techniques used}
 \label{sec:comp-techn-used}
 
+\paragraph{Frequency analysis:}
+
+Two methods can be used for the frequency analysis, the Fast Fourier Transform (FFT) or the Wavelet Transform
+(WT). The FFT is very common for spectral analysis, hence the Matlab toolbox for computing FFTs is efficient
+(this can be seen on Figure \ref{fig:computational-time}), while it is a little bit trickier to do some
+spectral analysis with the WT. Moreover, at the time of writing this report, the functions we use allows us
+only to choose between \texttt{morl} and \texttt{mexh} wavelets while there is a vast choice of wavelets to
+use. The usual modularity of the WT is thus hampered by these constraints. 
+
+Furthermore, if the ROI size is not increased, the WT is very time consuming, especially in comparison with the
+FFT. The FFT contains phase information, thus it can be used to compute the probable shape of the beating
+pattern.
+
+However, usually the wavelet transform is very modulable, and we can even create our own wavelets. In addition
+to this, the WT is an excellent tool for the time-frequency analysis. 
+
+If, in the future, more wavelet types are accessible in our tool, the WT will be a very good way to
+analyze the cylia beating. Both the FFT and the WT will be complementary means of analysis.
+
+
+\paragraph{Activity analysis:}
+
+There are two methods to analyze the activity of the video: the FFT power and the max-entropy. Both methods
+give similar results. If the FFT was previously computed, then computing the activity with the FFT is
+straightforward and fast. The \texttt{computeEntropy} method has a $O(\mathtt{heigth} \times \mathtt{width}
+\times \mathtt{time})$ complexity, hence if the FFT was previously computed, it will be faster to use the FFT
+power. If time is not a problem, then both methods will do fine.
+
 
 %----------------------------------------------------------------------------------------
 %	SECTION 6
