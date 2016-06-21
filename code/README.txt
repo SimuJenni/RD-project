@@ -19,9 +19,10 @@ Requirements
 Setup
 -----
 To use the tool you have to first set the following global variables in setup.m:
-
 - fs: Specifies the sampling frequency of the videos (default=90)
 - videoDir: Directory where the video-data to be analysed is stored
+
+Optionally you can also specify alternative paths for:
 - extractedDir: Directory where the extracted data from the videos is stored
 - resultsDir: Directory where the results are stored
 
