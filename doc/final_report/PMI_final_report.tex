@@ -241,9 +241,16 @@ function [ data ] = filter3d( data, dims, sigmas, type )
   \end{lstlisting}
 \end{minipage}
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.5\linewidth]{shape}
+  \caption{Probable shape from one of the beating movies. }
+  \label{fig:shape}
+\end{figure}
+
 \subsection{Extracting Probable Beating Pattern}
 
-To estimate the probable shape of the beating pattern we make use of the results from the frequency analysis using the FFT. We select the ROIs with the most common dominant frequencies and high activity to regress the beating shape. Before using locally weighted linear least squares to estimate the shape we use the phase estimates to shift the samples in time such that they all have the same phase. The function implementing this procedure is \texttt{probableShapeFromData.m} and the corresponding header is shown in Listing \ref{shape}. 
+To estimate the probable shape of the beating pattern we make use of the results from the frequency analysis using the FFT. We select the ROIs with the most common dominant frequencies and high activity to regress the beating shape. Before using locally weighted linear least squares to estimate the shape we use the phase estimates to shift the samples in time such that they all have the same phase. The function implementing this procedure is \texttt{probableShapeFromData.m} and the corresponding header is shown in Listing \ref{shape}. An example result is shown in Figure \ref{fig:shape}.
 
 \begin{minipage}{\linewidth}
   \begin{lstlisting}[caption={Function for extracting the probable beating pattern.}, label=shape]
@@ -323,7 +330,7 @@ For a more flexible and convenient interpretation of the results we provide a GU
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\linewidth]{GUI}
+  \includegraphics[width=0.9\linewidth]{GUI}
   \caption{The GUI which can be used to inspect the results of the analysis.}
   \label{fig:gui}
 \end{figure}
@@ -341,7 +348,7 @@ We compared the computation time required for the FFT and WT analysis for differ
 
 \pgfplotstableread{speed_results.dat}\speed
 \begin{figure}[ht]
-  \begin{minipage}{0.4\linewidth}
+  \begin{minipage}{0.3\linewidth}
     \centering
     \pgfplotstableset{%
       fixed zerofill,
@@ -352,7 +359,7 @@ We compared the computation time required for the FFT and WT analysis for differ
     \pgfplotstabletypeset[columns={FFT,WT}]\speed
     
   \end{minipage}
-  \begin{minipage}{0.6\linewidth}
+  \begin{minipage}{0.4\linewidth}
     \centering
     \begin{tikzpicture}[scale=1]
       \begin{axis}[
@@ -382,7 +389,7 @@ times presented here are greater than if we had only used \texttt{performFFT} or
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\linewidth]{compare}
+  \includegraphics[width=0.8\linewidth]{compare}
   \caption{Comparison of results obtained with the FFT (left), WT with Mexican-Hat wavelet (middle) and WT with Morlet wavelet. }
   \label{fig:compare}
 \end{figure}
@@ -421,28 +428,19 @@ If we're interested to only look at very strong beatings it is therefore more us
 
 \section{Recommendations}
 
-
 \subsection{Statement of Recommendations}
+As stated in Subsection \ref{sec:comp-techn-used} we recommend the use of the FFT for the frequency analysis due to its much better frequency resolution and lower computation time. If time-frequency analysis becomes of interest the WT will likely be the better option.   
 
+We also recommend a more rigorous testing and comparison of the methods based on clearly defined features in the results and in collaboration with the client.
 
 \subsection{Limitations}
-
+In our opinion, the main limitation of our work is that the tool was not yet tested in the wild, i.e. in a real experiment with the intended users. This will mostly likely uncover several possibilities for further optimisation, be it concerning usability, implementation of additional features or improvements of existing functionality. 
 
 \subsection{Outstanding Issues and Perspective for Future Work}
+One idea for future improvement of the tool would be to allow the user to specify the mask in the GUI by hand, i.e. through mouse-clicks on the activity plot of the GUI for example. 
+We could also imagine that other metrics besides the activity might be interesting in specifying the mask.
 
-
-
-%----------------------------------------------------------------------------------------
-%	SECTION 7
-%----------------------------------------------------------------------------------------
-
-\section{[Other relevant section]}
-
-
-
-
-
-
+Concerning the estimation of the beating pattern, we believe that it could most likely be improved through more careful selection of the data used for the fitting. Concretely it might be beneficial to detect and exclude outliers and only consider samples that have roughly the same amplitude.
 
 
 %----------------------------------------------------------------------------------------
