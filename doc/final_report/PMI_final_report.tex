@@ -348,7 +348,31 @@ times presented here are greater than if we had only used \texttt{performFFT} an
 \subsection{Effects of wavelet types}
 \label{sec:effects-wavel-types}
 
+The code currently supports only two types of wavelet types (two of the functions used support almost
+exclusively distinct wavelet types):
+\begin{itemize}
+\item \texttt{morl} (Morlet wavelets),
 
+\item \texttt{mexh} (Mexican hat wavelets).
+\end{itemize}
+
+However, there are significant differences between the results we obtain with these two wavelets. You can
+compare Figure \ref{fig:morl} with Figure \ref{fig:mexh}. Although the spectrums are similar, the results we obtain with the Morlet wavelet are much
+closer to the results we obtain with the fast Fourier transform.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.5]{Cylia_beating_movie_mat_Results.png}
+  \caption{Results with \texttt{morl} wavelets}
+  \label{fig:morl}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.5]{Cylia_beating_movie_mexh_mat_Results.png}
+  \caption{Results with \texttt{mexh} wavelets}
+  \label{fig:mexh}
+\end{figure}
 
 \subsection{Comparison of the techniques used}
 \label{sec:comp-techn-used}
