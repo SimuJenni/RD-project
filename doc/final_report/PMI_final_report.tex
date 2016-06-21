@@ -170,10 +170,21 @@ considered.
 
 \section{Realisation} 
 
+In this section we give a brief overview of the main functionalities of the tool. The usage of these functions is demonstrated in the \texttt{demo.m} script.
+
 \subsection{Frequency Analysis}
 
+We implemented two techniques to perform the frequency analysis: 
+
+\begin{itemize}
+\item Fast Fourier Transform (FFT): Implemented in the function  \texttt{performFFT.m} 
+\item Wavelet Transform (WT): Implemented in the function  \texttt{WTAnalysis.m} 
+\end{itemize}
+
+The interfaces of the two functions are identical with the exception that \texttt{WTAnalysis.m} has an additional optional parameter specifying the type of wavelet to use and \texttt{performFFT.m} has one more return value (the dominant phases per ROI). The header of \texttt{performFFT.m} is shown in Listing \ref{fft}.
+
 \begin{minipage}{\linewidth}
-  \begin{lstlisting}[caption={Function performing the frequency analysis using the FFT.}, label=list:res]
+  \begin{lstlisting}[caption={Function performing the frequency analysis using the FFT.}, label=fft]
 function [ power, f, domFreqs, domPhase ] = performFFT( data, fs )
 %PERFORMFFT performs frequency analysis using the fast fourier transform
 % Input:
@@ -192,8 +203,10 @@ function [ power, f, domFreqs, domPhase ] = performFFT( data, fs )
 
 \subsection{Activity Analysis}
 
+To compute the tissue activity we explored two possibilities. The computation based on the mean power of the FFT is done in \texttt{activityFromPower.m} and the computation based on ROI-wise entropy can be performed with \texttt{computeEntropy.m}. The arguments to these two functions are different (\texttt{activityFromPower.m} uses the output from \texttt{performFFT.m} while \texttt{computeEntropy.m} uses the video-data) but the return values are interchangeable.  The header of \texttt{computeEntropy.m} is shown in Listing \ref{entropy}.
+
 \begin{minipage}{\linewidth}
-  \begin{lstlisting}[caption={Function performing the activity analysis using entropy.}, label=list:res]
+  \begin{lstlisting}[caption={Function performing the activity analysis using entropy.}, label=entropy]
 function entropy = computeEntropy(data) 
 %COMPUTEENTROPY Computes pixel-wise entropy of the provided video-data.
 % Input:
@@ -207,8 +220,11 @@ function entropy = computeEntropy(data)
 
 \subsection{Smoothing for Noise-Removal}
 
+As a pre-processing step we can use smoothing for noise-removal. This functionality is implemented in \texttt{filter3d.m}. As the name suggests, the smoothing is performed via a 3D filtering of the video data with a customisable 3D smoothing-kernel. We can apply 3D filtering because we deal with videos taken from a static scene (except the cilia) with a fixed camera. The 3rd dimension of the filter-kernel (the \textit{time}-dimension) can either be chosen as a gaussian- or median-filter. All other dimensions are fixed gaussians. The header of \texttt{filter3d.m} is shown in Listing \ref{filter}.
+
+
 \begin{minipage}{\linewidth}
-  \begin{lstlisting}[caption={Function performing the noise removal.}, label=list:res]
+  \begin{lstlisting}[caption={Function performing the noise removal.}, label=filter]
 function [ data ] = filter3d( data, dims, sigmas, type )
 %FILTER3D Filters the provided 3D-array data with a 3D-gaussian kernel with
 %dimensions specified in dims and gaussians with standard-deviations
@@ -227,8 +243,10 @@ function [ data ] = filter3d( data, dims, sigmas, type )
 
 \subsection{Extracting Probable Beating Pattern}
 
+To estimate the probable shape of the beating pattern we make use of the results from the frequency analysis using the FFT. We select the ROIs with the most common dominant frequencies and high activity to regress the beating shape. Before using locally weighted linear least squares to estimate the shape we use the phase estimates to shift the samples in time such that they all have the same phase. The function implementing this procedure is \texttt{probableShapeFromData.m} and the corresponding header is shown in Listing \ref{shape}. 
+
 \begin{minipage}{\linewidth}
-  \begin{lstlisting}[caption={Function for extracting the probable beating pattern.}, label=list:res]
+  \begin{lstlisting}[caption={Function for extracting the probable beating pattern.}, label=shape]
 function [ shape ] = probableShapeFromData( dominantFreqs, phase, data,...
     activity, fs )
 %PROBABLESHAPEFROMDATA Computes the probable shape of the beating pattern 
@@ -251,8 +269,11 @@ function [ shape ] = probableShapeFromData( dominantFreqs, phase, data,...
 
 \subsection{Batch Processing of the Data}
 
+The processing of the video data is possible in batches. Processing of videos takes place in two phases, first the data is extracted from videos contained in a folder with \texttt{batchExtractFolder.m} for further processing. Data is extracted for all videos contained in the specified folder including subfolders. In the second phase, the extracted data is then analysed with \texttt{batchAnalyseFolder.m}. This function coordinates the frequency and activity analysis and takes care of storing the results. Both functions can run parallel (if the required Toolbox is installed) leading to significant speed-ups on multiprocessor systems. The header of \texttt{batchExtractFolder.m} is shown in Listing \ref{extract} and the header of \texttt{batchAnalyseFolder.m} in Listing \ref{process}.
+
+
 \begin{minipage}{\linewidth}
-  \begin{lstlisting}[caption={Function for extracting data from videos.}, label=list:res]
+  \begin{lstlisting}[caption={Function for extracting data from videos.}, label=extract]
 function batchExtractFolder( extractFolder, storeFolder, reload )
 %BATCHEXTRACTFOLDER Extracts data of all the videos in the folder 
 %extractFolder (including subfolders) and saves it to storeFolder for later 
@@ -267,7 +288,7 @@ function batchExtractFolder( extractFolder, storeFolder, reload )
 \end{minipage}
 
 \begin{minipage}{\linewidth}
-  \begin{lstlisting}[caption={Function for analysing extracted data.}, label=list:res]
+  \begin{lstlisting}[caption={Function for analysing extracted data.}, label=process]
 function batchAnalyseFolder( folderPath, fs, roiSize, resultsDir,...
     preProcess, method, waveletType )
 %BATCHANALYSEFOLDER Anlayses all files in the given folder using the
@@ -290,22 +311,33 @@ function batchAnalyseFolder( folderPath, fs, roiSize, resultsDir,...
 
 \subsection{GUI}
 
+For a more flexible and convenient interpretation of the results we provide a GUI. Note that it is only used for the inspection of the results and not for running the analysis. Figure \ref{fig:gui} shows the layout of the GUI. Some of the special features of the GUI are the following:
+\begin{itemize}
+\item The available videos and ROIs for inspection are accessible via the two drop-down menus in the top-left.
+\item The techniques used for the frequency and activity analysis can be switched via the buttons on the left.
+\item Clicking on a ROI in the activity plot will show the corresponding frequency spectrum in the bottom centre plot.
+\item In the dropdown-menus above the bottom-left and bottom-right figures you can choose which statistics or plots these figures should display.
+\item The activity mask (top-right) can be manipulated via the two dropdown-menus above the figure. The mask influences some of the statistics, i.e. yellow ROI are included and blue ROI excluded.
+\end{itemize}
+ 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{GUI}
+  \caption{The GUI which can be used to inspect the results of the analysis.}
+  \label{fig:gui}
+\end{figure}
 
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
 
-\section{Results}
+\section{Evaluation}
 
-\subsection{Effect of ROI size on performance}
+\subsection{Effect of ROI-Size on Performance}
 \label{sec:effect-roi-size}
 
-We measured the computational time of the FFT analysis and the WT analysis for different ROI sizes on the
-initial cylia beating movie. The ROI sizes tested were $1$, $[3, 4]$ and $[6, 8]$. The results are plotted in
-Figure \ref{fig:computational-time}.
-
-To compute the results, we used a 2.4 GHz Intel Core i5 processor on a MacBook Pro (15 pouces, mid-2010) with
-8 Go 1067 MHz DDR3 RAM. The results are for a single video (\texttt{Cylia\_beating\_movie.avi}).
+We compared the computation time required for the FFT and WT analysis for different ROI sizes on a single video. We tested with ROIs of size $1$, $[3, 4]$ and $[6, 8]$ on a 2.4 GHz Intel Core i5 MacBook Pro with 8 GB 1067 MHz DDR3 RAM. The results are plotted in Figure \ref{fig:computational-time}.
 
 \pgfplotstableread{speed_results.dat}\speed
 \begin{figure}[ht]
@@ -343,70 +375,44 @@ To compute the results, we used a 2.4 GHz Intel Core i5 processor on a MacBook P
   \label{fig:computational-time}
 \end{figure}
 
-Interestingly, computing the FFT pixel wise takes approximately 2 minutes and 40 seconds, while it takes 25
+We observe that computing the FFT pixel-wise takes approximately 2 minutes and 40 seconds, while it takes around 25 
 minutes for the WT. However, as soon as we increase the ROI size, the computational time for the WT decreases
 drastically. It should be noted that the computations were run with \texttt{batchAnalyseFolder}, hence the
-times presented here are greater than if we had only used \texttt{performFFT} and \texttt{WTAnalysis} instead.
-
-\subsection{Effects of wavelet types}
-\label{sec:effects-wavel-types}
-
-The code currently supports only two types of wavelet types (two of the functions used support almost
-exclusively distinct wavelet types):
-\begin{itemize}
-\item \texttt{morl} (Morlet wavelets),
-
-\item \texttt{mexh} (Mexican hat wavelets).
-\end{itemize}
-
-However, there are significant differences between the results we obtain with these two wavelets. You can
-compare Figure \ref{fig:morl} with Figure \ref{fig:mexh}. Although the spectrums are similar, the results we obtain with the Morlet wavelet are much
-closer to the results we obtain with the fast Fourier transform.
+times presented here are greater than if we had only used \texttt{performFFT} or \texttt{WTAnalysis}.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.5]{Cylia_beating_movie_mat_Results.png}
-  \caption{Results with \texttt{morl} wavelets}
-  \label{fig:morl}
+  \includegraphics[width=\linewidth]{compare}
+  \caption{Comparison of results obtained with the FFT (left), WT with Mexican-Hat wavelet (middle) and WT with Morlet wavelet. }
+  \label{fig:compare}
 \end{figure}
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[scale=0.5]{Cylia_beating_movie_mexh_mat_Results.png}
-  \caption{Results with \texttt{mexh} wavelets}
-  \label{fig:mexh}
-\end{figure}
 
-\subsection{Comparison of the techniques used}
+\subsection{A Comparison of the Different Techniques}
 \label{sec:comp-techn-used}
 
-\paragraph{Frequency analysis:}
+\paragraph{Frequency Analysis}
 
-Two methods can be used for the frequency analysis, the Fast Fourier Transform (FFT) or the Wavelet Transform
-(WT). The FFT is very common for spectral analysis, hence the Matlab toolbox for computing FFTs is efficient
-(this can be seen on Figure \ref{fig:computational-time}), while it is a little bit trickier to do some
-spectral analysis with the WT. Moreover, at the time of writing this report, the functions we use allows us
-only to choose between \texttt{morl} and \texttt{mexh} wavelets while there is a vast choice of wavelets to
-use. The usual modularity of the WT is thus hampered by these constraints. 
+We compared results obtained with the FFT with results obtained with the WT on synthetic data to get an idea of the quality of the results. The synthetic example in this case is made up of high amplitude sinusoid at 10Hz and low amplitude sinusoids at 15Hz. Results are shown in Figure \ref{fig:compare}. We make the following observations:
 
-Furthermore, if the ROI size is not increased, the WT is very time consuming, especially in comparison with the
-FFT. The FFT contains phase information, thus it can be used to compute the probable shape of the beating
-pattern.
+\begin{enumerate}
+\item The FFT is much more precise with respect to frequency analysis. We can clearly observe this in Figure \ref{fig:compare}. 
+\item The results of the WT are highly dependent on the type of wavelet. The Morlet for example is much closer to the FFT than the Mexican-Hat wavelet.
+\item FFT is much faster than WT especially at smaller ROI-sizes.
+\item FFT provides us with phase information that we can use to compute the probable beating pattern.
+\item WT allows time-frequency analysis.
+\item WT is very customisable and so most likely the results with the WT can be improved through careful parameter tuning.
+\end{enumerate}
 
-However, usually the wavelet transform is very modulable, and we can even create our own wavelets. In addition
-to this, the WT is an excellent tool for the time-frequency analysis. 
-
-If, in the future, more wavelet types are accessible in our tool, the WT will be a very good way to
-analyze the cylia beating. Both the FFT and the WT will be complementary means of analysis.
-
+From these observations we can conclude that if we are not interested in a time-frequency analysis of the signal we get no benefit from using the WT.
 
 \paragraph{Activity analysis:}
 
-There are two methods to analyze the activity of the video: the FFT power and the max-entropy. Both methods
-give similar results. If the FFT was previously computed, then computing the activity with the FFT is
-straightforward and fast. The \texttt{computeEntropy} method has a $O(\mathtt{heigth} \times \mathtt{width}
-\times \mathtt{time})$ complexity, hence if the FFT was previously computed, it will be faster to use the FFT
-power. If time is not a problem, then both methods will do fine.
+We implemented two methods to analyse the activity of the video: using the FFT power and entropy. 
+If the FFT was previously computed, then computing the activity with the FFT is
+straightforward and very fast. The function computing the entropy has a $O(\mathtt{heigth} \times \mathtt{width}
+\times \mathtt{time})$ complexity. The quality of the two techniques is quite different in that FFT power is much more sensible to the amplitude in the signal. 
+If we're interested to only look at very strong beatings it is therefore more useful to look at the FFT-power. Conversely, if we are more interested in low amplitude signals the entropy seems like the better choice. 
 
 
 %----------------------------------------------------------------------------------------
