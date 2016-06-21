@@ -13,6 +13,7 @@ Requirements
 	- statistics_toolbox
 	- wavelet_toolbox
 	- distrib_computing_toolbox (optional for parallel computing)
+- A minumum of 3 Gb per core are recommended.
 
 
 Setup
