@@ -14,7 +14,6 @@ function saveExtractedData( data , videoPath, storeFolder )
 if (~exist(storeFolder, 'dir')) % folder does not exist
     disp(['Folder ' storeFolder ' does not exist yet. Creating it ...'])
     mkdir(storeFolder);
-    disp('Folder created. Trying to save the data.')
     saveExtractedData(data, videoPath, storeFolder);  
 else 
     savePath = strcat(storeFolder, videoId, '.mat');

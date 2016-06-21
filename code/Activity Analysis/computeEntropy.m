@@ -11,7 +11,6 @@ function entropy = computeEntropy(data)
 entropy = zeros(size(data, 1),size(data, 2));
 
 data = single(data);
-disp('Computing Entropy...')
 
 % Compute entropy pixel-wise
 for row = 1:size(data, 1)
@@ -22,6 +21,5 @@ for row = 1:size(data, 1)
         entropy(row,col) = -sum(xh(idx) .* log2(xh(idx)));  % Compute entropy
     end
 end
-disp('Finished computing entropy!') 
 end
 

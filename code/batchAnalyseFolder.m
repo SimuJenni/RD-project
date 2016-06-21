@@ -26,7 +26,7 @@ if ~strmatch(method, {'fft' 'wt' 'both'})
 end
 
 disp('========================================================');
-disp(['Analysing files in folder: ' folderPath]);
+disp(['Analysing folder: ' folderPath]);
 
 tic
 
@@ -53,9 +53,7 @@ parfor idx = 1:numFiles
 
     if strmatch(method, {'fft' 'both'})
         % analysis with FFT
-        disp('Computing FFT...')
         [ power, freqs, domFreqs, domPhase ] = performFFT( file.data, fs );
-        disp('Finished computing FFT.')
 
         % Save the results
         saveDir = [resultsDir 'FFT/ROI ' num2str(roiSize) '/'];
@@ -75,10 +73,8 @@ parfor idx = 1:numFiles
 
     if strmatch(method, {'wt' 'both'})
         % analysis with WT
-        disp('Computing WT... (this operation can take a few minutes)')
         [ power, freqs, domFreqs ] = WTAnalysis( file.data, fs, waveletType);
         domPhase = []; % Not implemented yet
-        disp('Finished computing WT.')
        
         % Save the results
         saveDir = [resultsDir 'WT/ROI ' num2str(roiSize) '/'];
@@ -100,7 +96,6 @@ function activity = saveResults(saveDir, fileName, data, power, freqs, ...
     end
     
     % Plots
-    disp('Generating plots...');
     fig = figure( 'Position', [100, 100, 1024, 700]);
     activity = plotResults( data, power, freqs, dominantFreqs, dominantPhase );
 

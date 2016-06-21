@@ -14,10 +14,7 @@ v = VideoReader(videoPath);
 
 % Extract all frames
 frames = cell(1, numFrames);
-for idx = 1:numFrames
-    if(mod(idx,50)==1)
-        fprintf(2,'.');
-    end    
+for idx = 1:numFrames 
     frame = readFrame(v);
     if size(frame,3)>1
         frames{idx} = rgb2gray(frame);
@@ -25,7 +22,6 @@ for idx = 1:numFrames
         frames{idx} = frame;
     end
 end
-disp('Done!');
 
 % Construct 3D-array
 videoData = cell2mat(frames);
