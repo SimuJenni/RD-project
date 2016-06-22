@@ -16,9 +16,9 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8440</WindowHeight>
-  <WindowWidth>28820</WindowWidth>
-  <WindowTopX>-20</WindowTopX>
+  <WindowHeight>10640</WindowHeight>
+  <WindowWidth>21840</WindowWidth>
+  <WindowTopX>2120</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -185,7 +185,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="work_log.csv">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="73" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="79" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="62"/>
    <Column ss:AutoFitWidth="0" ss:Width="244"/>
@@ -645,7 +645,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Simon</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Bug-ficing and testing</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Bug-fixing and testing</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Fixed bugs in GUI and phase computation</Data></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-05-31T00:00:00.000</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
@@ -706,6 +706,47 @@
     <Cell ss:StyleID="s84"><Data ss:Type="DateTime">2016-06-21T00:00:00.000</Data></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">5h</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Final presentation</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Worked on slides</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-06-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Bug fixing</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Fixed bug in the Wavelet transform not allow all types of wavelets</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-06-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">2h</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Final report</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Wrote section on realisation </Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-06-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Final report</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Adjusted and corrected evaluation section</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-06-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Simon</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Final report</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Wrote recomendations, limitations and future work.</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-06-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="2" ss:StyleID="s78"><Data ss:Type="String">Documentation and README</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Updated the README for the tool</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="DateTime">2016-06-21T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">1h</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -725,11 +766,10 @@
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
-   <TopRowVisible>54</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>73</ActiveRow>
+     <ActiveRow>9</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>

@@ -220,7 +220,7 @@ function entropy = computeEntropy(data)
 
 \subsection{Smoothing for Noise-Removal}
 
-As a pre-processing step we can use smoothing for noise-removal. This functionality is implemented in \texttt{filter3d.m}. As the name suggests, the smoothing is performed via a 3D filtering of the video data with a customisable 3D smoothing-kernel. We can apply 3D filtering because we deal with videos taken from a static scene (except the cilia) with a fixed camera. The 3rd dimension of the filter-kernel (the \textit{time}-dimension) can either be chosen as a gaussian- or median-filter. All other dimensions are fixed gaussians. The header of \texttt{filter3d.m} is shown in Listing \ref{filter}.
+As a pre-processing step we can use smoothing for noise-removal. This functionality is implemented in \texttt{filter3d.m}. As the name suggests, the smoothing is performed via a 3D filtering of the video data with a customisable 3D smoothing-kernel. We can apply 3D filtering because we deal with videos taken from a static scene (except the cilia) with a fixed camera. The third dimension of the filter-kernel (the \textit{time}-dimension) can either be chosen as a gaussian- or median-filter. All other dimensions are fixed gaussians. The header of \texttt{filter3d.m} is shown in Listing \ref{filter}.
 
 
 \begin{minipage}{\linewidth}
