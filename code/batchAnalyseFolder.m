@@ -35,7 +35,7 @@ FileList = dir([folderPath '*.mat']);
 
 % Analyse all the files
 numFiles = length(FileList);
-parfor idx = 1:numFiles
+for idx = 1:numFiles
     fileName = FileList(idx).name;
     disp(['Analysing file ' num2str(idx) '/' num2str(numFiles) ': '...
         fileName]);
@@ -60,6 +60,8 @@ parfor idx = 1:numFiles
         fPath = [saveDir '/' fileName];
         activity = saveResults(saveDir, fPath, file.data, power, freqs,...
             domFreqs, domPhase);
+        writeResults2File( resultsDir, fileName, roiSize, method, power,...
+            freqs, domFreqs );
         
         if(roiSize==1)
             fig = figure();
@@ -79,7 +81,10 @@ parfor idx = 1:numFiles
         % Save the results
         saveDir = [resultsDir 'WT/ROI ' num2str(roiSize) '/'];
         fPath = [saveDir '/' fileName];
-        saveResults(saveDir, fPath, file.data, power, freqs, domFreqs, domPhase);
+        saveResults(saveDir, fPath, file.data, power, freqs, domFreqs,...
+            domPhase);
+        writeResults2File( resultsDir, fileName, roiSize, method, power,...
+            freqs, domFreqs );
     end    
 end
 disp(['DONE! Runtime: ' num2str(toc)])

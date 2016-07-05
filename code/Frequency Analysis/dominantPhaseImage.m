@@ -6,6 +6,7 @@ function dominantPhaseImage( domPhase, titleText )
 %   titleText - Title of the plot
 
 % Display
+%domPhase(domPhase<0) = pi + domPhase(domPhase<0);
 imagesc(domPhase)
 title(titleText)
 colorbar
